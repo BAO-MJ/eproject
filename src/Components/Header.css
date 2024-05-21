@@ -1,4 +1,4 @@
-.zuka {
+#header {
   background-color: #6cc1f7;
 }
 .container {
@@ -20,7 +20,7 @@ nav {
 #main-menu li a {
   color: #ffedc8;
   display: block;
-  padding: 18px 45px;
+  padding: 10px 45px;
   text-decoration: none;
 }
 Nav {
@@ -35,8 +35,8 @@ Nav {
   margin: 0;
   padding: 0;
 }
-#loki li{
-    position: relative;
+#loki li {
+  position: relative;
 }
 #loki li a {
   color: #444;
@@ -44,47 +44,77 @@ Nav {
   padding: 25px 30px;
   text-decoration: none;
 }
-.hulk{
-    background-color:red;
-    
-   
+.hulk {
+  background-color: red;
 }
-#loki ul.menu{
-    position: absolute;
-    background-color:#ffedc8 ;
-   padding: 8px 5px;
-    list-style: none;
-    width: 200px;
-    font-size: small;
-    color: #0D3483;
-    display: none;
-    
+#loki ul.menu {
+  position: absolute;
+  background-color: #ffedc8;
+  padding: 8px 5px;
+  list-style: none;
+  width: 200px;
+  font-size: small;
+  color: #0d3483;
+  display: none;
 }
 
-#loki ul.menu li:hover{
-     border-bottom: 1px solid #0D3483; 
+#loki ul.menu li:hover {
+  border-bottom: 1px solid #0d3483;
 }
 #loki li:hover ul.menu {
-    display: block;
-
+  display: block;
 }
 
-
-    
-
-#loki>li:hover>a::before{
-    display: block;
+#loki > li:hover > a::before {
+  display: block;
 }
-#loki li a:hover::after{
-    content: "";
-    width: 70%;
-    height: 1px;
-    background: black;
-    position: absolute;
-    bottom: 33px;
-    
-    
+#loki li a:hover::after {
+  content: "";
+  width: 70%;
+  height: 1px;
+  background: black;
+  position: absolute;
+  bottom: 33px;
 }
-
+marquee {
+ 
+  background-color: #ffb300;
+  padding-top: 15px;
+  color: #fff;
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  
+ 
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+ 
+  
+}
+ .banner-content {
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 57%);
+  left: 50%;
+  width: 100%;
+  max-width: 192rem;
+}
+* {
+  background-color: transparent;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  margin: 0;
+  padding: 0px;
+ 
+}
 
 

@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./Header.css";
+import logo from "../assets/images/Untitled-1-5-copy-5.png";
 function Header() {
   return (
     <>
@@ -49,27 +50,27 @@ function Header() {
           <nav className="container">
             <ul id="main-menu">
               <li>
-                <a href="" className="zuka">
+                <a href="">
                   <h5>AMUSEMENT PARK</h5>
                 </a>
               </li>
               <li>
-                <a href=""className="zuka">
+                <a href="">
                   <h5>WATERPARK</h5>
                 </a>
               </li>
               <li>
-                <a href=""className="zuka">
+                <a href="">
                   <h5>DINING</h5>
                 </a>
               </li>
               <li>
-                <a href=""className="zuka">
+                <a href="">
                   <h5>GROUPS</h5>
                 </a>
               </li>
               <li>
-                <a href=""className="zuka">
+                <a href="">
                   <h5>PLAN YOUR VISIT</h5>
                 </a>
               </li>
@@ -80,6 +81,26 @@ function Header() {
               </li>
             </ul>
           </nav>
+        </div>
+      </div>
+
+      <marquee>
+        The amusement park is open this Friday 5/24 starting at 5pm for our $20
+        unlimited wristband deal. The waterpark &amp; amusement park will be
+        open Sat 5/25- Sun 5/27 starting at 11am. Waterpark &amp; Limited kiddie
+        rides open at 11am, major rides, restaurants, arcades, and limited games
+        open at 12pm. Majority attractions at go karts open at 1pm.
+      </marquee>
+      <div id="home-page">
+        <img src={logo} />
+        <div className="banner-content">
+          <div className="content-treatment">
+            <div className="content-inner">
+              <div className="content-inner-headline">
+                <img src="https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/blue-wave.svg"></img>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
