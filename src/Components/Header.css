@@ -1,25 +1,90 @@
-#header{
-    background-color: #6CC1F7;
+.zuka {
+  background-color: #6cc1f7;
 }
-.container{
-    max-width: 960px;
-    margin: 0px auto;
+.container {
+  max-width: 960px;
+  margin: 0px auto;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+#main-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#main-menu li a {
+  color: #ffedc8;
+  display: block;
+  padding: 18px 45px;
+  text-decoration: none;
+}
+Nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#loki {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#loki li{
+    position: relative;
+}
+#loki li a {
+  color: #444;
+  display: block;
+  padding: 25px 30px;
+  text-decoration: none;
+}
+.hulk{
+    background-color:red;
+    
    
-    align-items: center;
 }
-#main-menu{
-    display: flex;
+#loki ul.menu{
+    position: absolute;
+    background-color:#ffedc8 ;
+   padding: 8px 5px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    width: 200px;
+    font-size: small;
+    color: #0D3483;
+    display: none;
+    
 }
-#main-menu li a{
-    color: #FFEDC8;
-    display:  block;
-    padding: 18px 18px;
-    text-decoration: none;
+
+#loki ul.menu li:hover{
+     border-bottom: 1px solid #0D3483; 
 }
+#loki li:hover ul.menu {
+    display: block;
+
+}
+
+
+    
+
+#loki>li:hover>a::before{
+    display: block;
+}
+#loki li a:hover::after{
+    content: "";
+    width: 70%;
+    height: 1px;
+    background: black;
+    position: absolute;
+    bottom: 33px;
+    
+    
+}
+
+
+
