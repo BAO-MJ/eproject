@@ -1,25 +1,93 @@
-#header{
+#header {
     background-color: #6CC1F7;
+    position: sticky;
 }
-.container{
+
+.container {
     max-width: 960px;
     margin: 0px auto;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-between;
-   
+
     align-items: center;
 }
-#main-menu{
+
+#main-menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-#main-menu li a{
+
+#main-menu li a {
     color: #FFEDC8;
-    display:  block;
+    display: block;
     padding: 18px 18px;
     text-decoration: none;
+}
+
+#header .nav .nav-item .nav-link {
+    font-weight: 600 !important;
+    font-size: larger !important;
+    color: #FFEDC8;
+    transition: all 0.2s linear;
+}
+
+#header .nav .nav-item .nav-link:hover {
+    color: crimson;
+}
+
+
+.buy-button {
+    background-color: red !important;
+    font-weight: bold !important;
+}
+
+.buy-button:hover {
+    color: #FFEDC8 !important;
+}
+
+.buy-button .dropdown-toggle {
+    display: block;
+    position: relative;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.buy-button .dropdown-toggle:hover {
+    color: #FFEDC8 !important;
+    animation: wiggle-scale 0.5s infinite alternate;
+}
+
+@keyframes wiggle-scale {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+.header-marquee {
+    background-color: #ffb300;
+    padding: 5px;
+    font-weight: bolder;
+    color: white;
+}
+
+.see-more {
+    color: red !important;
+}
+
+#header .nav .nav-item {
+    margin: 0 20px;
 }
