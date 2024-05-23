@@ -1,17 +1,12 @@
 #header {
-    background-color: #6CC1F7;
-    position: sticky;
-}
-
-.container {
-    max-width: 960px;
-    margin: 0px auto;
+    background-color: #6CC1F7 !important;
+    position: sticky !important;
+    height: 10vh;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-
     align-items: center;
 }
 
@@ -29,28 +24,30 @@ nav {
     text-decoration: none;
 }
 
-#header .nav .nav-item .nav-link {
+#header .navbar-nav .nav-link {
     font-weight: 600 !important;
-    font-size: larger !important;
+    font-size: large !important;
     color: #FFEDC8;
     transition: all 0.2s linear;
 }
 
-#header .nav .nav-item .nav-link:hover {
-    color: crimson;
+#header .navbar-nav .nav-link:hover:not(#buy-button) {
+    color: crimson !important;
 }
 
-
-.buy-button {
-    background-color: red !important;
+#buy-button {
+    color: red !important;
+    background-color: #FFEDC8 !important;
     font-weight: bold !important;
+    border-radius: 30px;
 }
 
-.buy-button:hover {
+#buy-button:hover {
+    background-color: red !important;
     color: #FFEDC8 !important;
 }
 
-.buy-button .dropdown-toggle {
+#buy-button .dropdown-toggle {
     display: block;
     position: relative;
     transform-origin: center center;
@@ -58,7 +55,7 @@ nav {
     transition: transform 0.3s ease-in-out;
 }
 
-.buy-button .dropdown-toggle:hover {
+#buy-button .dropdown-toggle:hover {
     color: #FFEDC8 !important;
     animation: wiggle-scale 0.5s infinite alternate;
 }
@@ -88,6 +85,6 @@ nav {
     color: red !important;
 }
 
-#header .nav .nav-item {
-    margin: 0 20px;
+#header .navbar-nav .nav-link {
+    margin: 0 5px;
 }

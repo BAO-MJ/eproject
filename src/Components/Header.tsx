@@ -11,29 +11,39 @@ import Marquee from "react-fast-marquee";
 export default function Header() {
     return (
         <>
-            <Navbar style={{height: '20vh'}} bg="light" data-bs-theme="light">
+            <Navbar expand fixed="top" id="header" bg="light">
                 <Container>
                     <NavbarBrand href="/">
-                        <img style={{height: '120px'}} alt="logo"/>
+                        <img alt="logo"/>
                     </NavbarBrand>
-
                     <Nav>
                         <NavLink href="#deets">
-                            <h6>HOURS</h6>
+                            ATTRACTIONS
                         </NavLink>
-
-                        <NavLink eventKey={2} href="#memes">
-                            <h6>JOIN OUR TEAM</h6>
+                        <NavLink href="#deets">
+                            RESTAURANTS
                         </NavLink>
-
-                        <NavLink href="#trans">
-                            <h6>TRANSLATE</h6>
+                        <NavLink href="#deets">
+                            ENTERTAINMENT
+                        </NavLink>
+                        <NavLink href="#deets">
+                            PRICING
+                        </NavLink>
+                        <NavLink href="#deets">
+                            ABOUT US
+                        </NavLink>
+                        <NavLink href="#memes">
+                            CONTACT US
+                        </NavLink>
+                        <NavLink id="buy-button" href="#trans">
+                            BUY TICKETS
                         </NavLink>
                     </Nav>
                 </Container>
             </Navbar>
-
-            <div id="wrapper">
+            {/* <img style={{width: '100%'}} src='header.png' alt=''/> */}
+            
+            {/* <div id="wrapper">
                 <div id="header">
                     <Nav className="justify-content-center">
                         <HeaderDropdown title={"AMUSEMENT PARK"} to={"#duh"}>
@@ -64,10 +74,22 @@ export default function Header() {
                             <a className="dropdown-item" href="#">Candid Confections</a>
                             <a className="dropdown-item" href="#"><span className="see-more">More...</span></a>
                         </HeaderDropdown>
-                        <HeaderDropdown title={"PLAN YOUR VISIT"} to={"#duh"}>
+                        <HeaderDropdown title={"GROUPS"} to={"#duh"}>
                             <a className="dropdown-item" href="#">Group Packages</a>
                             <a className="dropdown-item" href="#">Birthday Packages</a>
                             <a className="dropdown-item" href="#">Fundraising</a>
+                        </HeaderDropdown>
+                        <HeaderDropdown title={"PLAN YOUR VISIT"} to={"#duh"}>
+                            <a className="dropdown-item" href="#">General Information</a>
+                            <a className="dropdown-item" href="#">Directions & Parking</a>
+                            <a className="dropdown-item" href="#">Operating Calendar</a>
+                            <a className="dropdown-item" href="#">History</a>
+                            <a className="dropdown-item" href="#">News</a>
+                            <a className="dropdown-item" href="#">Park Map</a>
+                            <a className="dropdown-item" href="#">Accommodations</a>
+                            <a className="dropdown-item" href="#">Service Animals</a>
+                            <a className="dropdown-item" href="#">Location Shoots</a>
+                            <a className="dropdown-item" href="#">Events</a>
                         </HeaderDropdown>
                         <HeaderDropdown className="buy-button" title={"BUY TICKETS"} to={"#duh"}>
                             <a className="dropdown-item" href="#">Ride Height & Ticketing</a>
@@ -80,7 +102,7 @@ export default function Header() {
                     </Marquee>
                 </div>
 
-            </div>
+            </div> */}
         </>
-    );
+    )
 }
