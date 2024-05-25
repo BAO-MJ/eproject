@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 bun.lockb
+src/_codux
+codux.config.json
+boards-global-setup.ts

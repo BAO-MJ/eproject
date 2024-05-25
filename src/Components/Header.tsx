@@ -3,9 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 import "./Header.css";
-import { NavItem, NavLink, NavbarBrand, DropdownDivider, DropdownMenu } from "react-bootstrap";
-import { HeaderDropdown } from "./HeaderDropdown.tsx";
-import Marquee from "react-fast-marquee";
+import { NavLink, NavbarBrand } from "react-bootstrap";
 
 
 export default function Header() {
