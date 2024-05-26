@@ -9,22 +9,22 @@ import { NavLink, NavbarBrand } from "react-bootstrap";
 export default function Header() {
     return (
         <>
-            <Navbar expand fixed="top" id="header" bg="light">
+            <Navbar sticky="top" expand id="header" bg="light">
                 <Container>
                     <NavbarBrand href="/">
                         <img alt="logo"/>
                     </NavbarBrand>
                     <Nav>
-                        <NavLink href="#deets">
+                        <NavLink href="#attractions">
                             ATTRACTIONS
                         </NavLink>
-                        <NavLink href="#deets">
+                        <NavLink href="#restaurants">
                             RESTAURANTS
                         </NavLink>
-                        <NavLink href="#deets">
+                        <NavLink href="#entertainment">
                             ENTERTAINMENT
                         </NavLink>
-                        <NavLink href="#deets">
+                        <NavLink href="#pricing">
                             PRICING
                         </NavLink>
                         <NavLink href="#deets">

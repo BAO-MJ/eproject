@@ -1,14 +1,22 @@
 import './Main.css';
 import React from "react";
-import Attractions from './Attractions.tsx';
+import Attractions from './Attractions/Attractions.tsx';
+import Entertainment from './Entertainment.tsx';
+import Restaurants from './Restaurants/Restaurants.tsx';
 
 export default function Main()
 {
     return (
-        <body>
+        <main>
             <div style={{width: '100%'}}>
-                <section id='attractions'>
+                <section id='attractions' style={{backgroundColor: 'lightblue'}}>
                     <Attractions/>
+                </section>
+                <section id='entertainment'>
+                    <Entertainment/>
+                </section>
+                <section id='restaurants' style={{backgroundColor: 'lightblue'}}>
+                    <Restaurants/>
                 </section>
                 {/* <section id='entertainment'>
                     <Container fluid>
@@ -26,6 +34,6 @@ export default function Main()
                     </Container>
                 </section> */}
             </div>
-        </body>
+        </main>
     )
 }

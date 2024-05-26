@@ -1,0 +1,18 @@
+.portfolio-desc {
+    background-color: #E30C25;
+}
+
+.portfolio-desc > span {
+    display: block;
+    font-size: larger;
+    color: white;
+    transition: .5s ease all;
+}
+
+.image-wrapper:hover > .portfolio-desc > span {
+    transform: scale(1.1);
+}
+
+* {
+    text-align: center;
+}

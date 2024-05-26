@@ -8,11 +8,9 @@ import Footer from './Components/Footer.tsx';
 const App = () => {
   return (
     <div>
-      <Router>
-        <Header/>
-        <Main/>
-        <Footer/>
-      </Router>
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   )
 }
