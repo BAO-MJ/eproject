@@ -5,16 +5,18 @@ import React from "react";
 import "./Header.css";
 import { NavItem, NavLink, NavbarBrand, DropdownDivider, DropdownMenu } from "react-bootstrap";
 import { HeaderDropdown } from "./HeaderDropdown.tsx";
-import Marquee from "react-fast-marquee";
-
+// import logo from"../assets/images/loki.jpg";
 
 export default function Header() {
     return (
+        
         <>
             <Navbar expand fixed="top" id="header" bg="light">
+            {/* <img src={logo}></img> */}
                 <Container>
+                
                     <NavbarBrand href="/">
-                        <img alt="logo"/>
+                    
                     </NavbarBrand>
                     <Nav>
                         <NavLink href="#deets">
@@ -41,7 +43,13 @@ export default function Header() {
                     </Nav>
                 </Container>
             </Navbar>
-            {/* <img style={{width: '100%'}} src='header.png' alt=''/> */}
+            <div>
+            <img style={{width: '100%'}} src='header.png' alt=''/>
+            </div>
+            {/* <marquee className="header-marquee">
+                        The amusement park is open this Friday 5/24 starting at 5pm for our $20 unlimited wristband deal. The waterpark & amusement park will be open Sat 5/25- Sun 5/27 starting at 11am. Waterpark & Limited kiddie rides open at 11am, major rides, restaurants, arcades, and limited games open at 12pm. Majority attractions at go karts open at 1pm.
+                    </marquee> */}
+          
             
             {/* <div id="wrapper">
                 <div id="header">

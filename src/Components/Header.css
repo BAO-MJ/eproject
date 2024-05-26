@@ -88,3 +88,232 @@ nav {
 #header .navbar-nav .nav-link {
     margin: 0 5px;
 }
+.justify-content-center{
+    width: 100%;
+    max-width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+#attractions .justify-content-center h3{
+    color: #0D3483;
+    font-size: 4.2rem;
+    text-align: center;
+    padding: 3rem 0;
+    font-weight: 500;
+    line-height: 1.3;
+}
+   .content-boxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+  .cotent-box{
+  font-size: 2.9rem;
+    font-weight: 500;
+    max-width: 346px;
+    flex-basis: 33.33%;
+    overflow: hidden;
+}
+
+
+.reason {
+    background-color: #E30C25;
+    color: #fff;
+    padding: auto;
+    text-align: center;
+   
+    min-height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -0.4rem;
+  
+   
+}
+.tg_title_gradient{
+  font-size: 2.5rem;
+  color: #0D3483;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 60px 10px;
+  
+   
+}
+
+
+
+
+.footer {
+    position: relative;
+    z-index: 3;
+  }
+
+  .footer .inner {
+
+    padding: 4.4rem 0;
+    background-color: #23468E;
+  }
+
+  .footer-inner {
+    margin:  auto;
+    max-width: 123rem;
+    padding: 0 1.5rem;
+    width :100%;
+  }
+
+  .footer .footer-header {
+    max-width: 123rem;
+    width: 100%;
+    margin: 0 auto 3.2rem;
+    text-align: center;
+  }
+
+  .footer .footer-header h2 {
+    font-family: var(--bubble-text);
+    font-weight: 900;
+    font-style: normal;
+    color: #FFEDC8;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    
+  }
+
+  .footer .footer-socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+   
+  }
+  .footer .footer-socials .social-icon {
+    width: 69px;
+    height: 69px;
+    background-image: url(https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/social-icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 center;
+  }
+  .footer .social-icon a {
+    display: block;
+    height: 100%;
+  }
+
+  .footer .footer-socials .social-icon.facebook {
+    background-position: 0 center;
+  }
+
+  .footer .footer-socials .social-icon.tiktok {
+    background-position: -133px center;
+  }
+
+  .footer .footer-socials .social-icon.instagram {
+    background-position: -263px center;
+  }
+
+  .footer .footer-socials .social-icon.youtube {
+    background-position: -391px center;
+  }
+  .footer-widgets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 0 0rem;
+    flex-wrap:wrap;
+    
+   
+  }
+
+  .footer-widgets .widget-column {
+    color: #FFEDC8;
+    font-size: 1.1rem;
+    
+  }
+
+  .footer-widgets .widget-column ul {
+    list-style: none;
+    
+  }
+
+  .footer-widgets .widget-column h3 {
+    color: #B0DBEB;
+    font-family: var(--bubble-text);
+    font-size: 1.0rem;
+    
+    
+  }
+
+
+  .footer-widgets .widget-column h3 a:hover {
+    color:#FFEDC8;
+    text-decoration: none;
+  }
+  .footer-widgets .widget-column h3 a {
+    color: #B0DBEB;
+    text-decoration: none;
+  }
+
+
+  .footer-copyright a,
+  .footer-copyright {
+    color: #B0DBEB;
+    text-align: center;
+  }
+
+  .partner-disclaimer {
+    text-align: center;
+   
+    padding: 0 1.8rem;
+    color: #fff;
+  }
+  .partner-disclaimer img {
+    clear: both;
+    display: block;
+    margin: 5px auto 0;
+    max-width: 150px;
+  }
+
+
+.recent-posts-footer {
+  margin-left: 0;
+  max-width: 280px;
+}
+
+.recent-posts-footer li .post-date {
+  font-size: 0.7em;
+}
+.recent-posts-footer li:first-child a {
+  padding-top: 0;
+}
+.recent-posts-footer li {
+  display: block;
+  width: 100%;
+  clear: both;
+  margin-bottom: 10px;
+}
+.recent-posts-footer li a {
+  color: #FFEDC8;
+  font-size: 1.6rem;
+  padding: 6px 0 0px;
+  display: inline-block;
+}
+
+#content .the-content {
+  margin-bottom: 60px;
+}
+.widget {
+  margin-bottom: 40px;
+}
+#header img {
+    max-width: 100%;
+    height:80px;
+    vertical-align: top;
+   
+    
+  }

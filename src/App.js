@@ -4,12 +4,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Main from './Components/Main.tsx';
 import Footer from './Components/Footer.tsx';
 // https://keansburgamusementpark.com/
+import Events from './Components/Events.tsx'
 const App = () => {
   return (
     <div>
       <Router>
         <Header/>
         <Main/>
+        <Events/>
         <Footer/>
       </Router>
     </div>

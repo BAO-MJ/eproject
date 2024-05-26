@@ -1,30 +1,40 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-export default function Main()
-{
-    return (
-        <body>
-            <section id='attractions'>
-                <Container className="justify-content-center" style={{minHeight: '300px'}}>
-                    <p>Hello</p>
-                </Container>
-            </section>
-            <section id='restaurant' style={{backgroundColor: 'lightblue'}}>
-                <Container style={{minHeight: '300px'}}>
-                    <p>Hello</p>
-                </Container>
-            </section>
-            <section id='entertainment'>
-                <Container style={{minHeight: '300px'}}>
-                    <p>Hello</p>
-                </Container>
-            </section>
-            <section id='pricing' style={{backgroundColor: 'lightblue'}}>
-                <Container style={{minHeight: '300px'}}>
-                    <p>Hello</p>
-                </Container>
-            </section>
-        </body>
-    )
+export default function Main() {
+  return (
+    <body>
+      <section id="attractions" style={{ backgroundColor: "while" }}>
+        <Container
+          className="justify-content-center"
+          style={{ minHeight: "300px" }}
+        >
+          <h3>REASONS TO VISIT KEANSBURG AMUSEMENT PARKk</h3>
+        </Container>
+        <div className="content-boxes">
+          <div className="content-box">
+            <img src="https://keansburgamusementpark.com/wp-content/uploads/2024/03/rollercoaster.png"></img>
+            <div className="reason">
+              <h4 data-cursor="-color-green">Keansburg Amusement Park</h4>
+            </div>
+          </div>
+          <div className="content-box">
+            <img src="https://keansburgamusementpark.com/wp-content/uploads/2024/03/water-park.png"></img>
+            <div className="reason">
+              <h4 data-cursor="-color-green"> Family Water Park</h4>
+            </div>
+          </div>
+          <div className="content-box">
+            <img src="https://keansburgamusementpark.com/wp-content/uploads/2024/03/giant-slide.png"></img>
+            <div className="reason">
+              <h4 data-cursor="-color-green">Buy Tickets</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+     
+      
+    </body>
+  );
 }
