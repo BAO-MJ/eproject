@@ -1,3 +1,27 @@
 html {
     scroll-padding-top: 10vh;
 }
+
+.container-sm-forced {
+    max-width: 540px !important;
+}
+
+.container-md-forced {
+    max-width: 720px !important;
+}
+
+.container-lg-forced {
+    max-width: 960px !important;
+}
+
+.container-xl-forced {
+    max-width: 1140px !important;
+}
+
+.container-xxl-forced {
+    max-width: 1320px !important;
+}
+
+h1 {
+    text-align: center;
+}

@@ -18,11 +18,11 @@ export default function Header() {
                         <NavLink href="#attractions">
                             ATTRACTIONS
                         </NavLink>
+                        <NavLink href="#events">
+                            EVENTS
+                        </NavLink>
                         <NavLink href="#restaurants">
                             RESTAURANTS
-                        </NavLink>
-                        <NavLink href="#entertainment">
-                            ENTERTAINMENT
                         </NavLink>
                         <NavLink href="#pricing">
                             PRICING

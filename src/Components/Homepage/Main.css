@@ -1,10 +1,5 @@
-section > * {
-    height: 90vh;
+section {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
 }
-
-/* section:before {
-    margin-top: -10vh;
-    height: 10vh;
-    content: "";
-    display: block;
-} */

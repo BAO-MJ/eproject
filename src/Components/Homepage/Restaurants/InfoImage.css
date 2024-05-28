@@ -1,4 +1,53 @@
-.image-wrapper {
+.info-image {
     background-color: white;
     border-radius: 15px;
+}
+
+.info-image .image-container {
+    border: 10px solid white;
+    border-radius: 15px;
+}
+
+/* @media (max-width: 767.98px) {
+    .info-image.flex-md-column > .image-container {
+        width: 30%;
+    }
+    
+    
+    .info-image.flex-row:not(.flex-md-column) > .image-container {
+        flex-grow: 1 !important;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (min-width: 768px) {
+    .info-image.flex-md-column > .image-container {
+        aspect-ratio: 10 / 9;
+    }
+    
+    
+    .info-image.flex-row:not(.flex-md-column) > .image-container {
+        position: relative;
+        display: block !important;
+        flex-grow: 0 !important;
+        aspect-ratio: 4 / 3;
+    }
+} */
+
+/* https://stackoverflow.com/questions/62506922/how-to-force-an-image-to-shrink-to-fit-in-flexbox */
+.info-image .image-container img {
+    height: 0;
+    width: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.info-image.flex-row:not(.flex-md-column) .image-container {
+    /* height: 100%; */
+    display: block !important;
+}
+
+.btn:hover {
+    background-color: #0dcaf0 !important;
+    color: white !important;
 }

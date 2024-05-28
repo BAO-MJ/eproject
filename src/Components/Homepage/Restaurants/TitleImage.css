@@ -7,9 +7,12 @@
 .image-container {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.image-container::after {
+/* .image-container::after {
     content: '';
     position: absolute;
     left: 0;
@@ -19,11 +22,12 @@
     background: black;
     opacity: 0;
     transition: .5s ease all;
-}
+} */
 
 .image-container > img {
     transition: .5s ease all;
     object-fit: cover;
+    height: 100%;
 }
 
 .image-wrapper {
@@ -31,11 +35,10 @@
     display: flex;
     flex-direction: column;
 }
-
-.image-wrapper:hover .image-container::after {
+/* .image-wrapper:hover .image-container::after {
     opacity: 0.3;
-}
+} */
 
-.image-wrapper:hover > .image-container > img {
+.image-wrapper:hover .image-container > img {
     transform: scale(1.1);
 }
