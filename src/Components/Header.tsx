@@ -1,106 +1,112 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import React from "react";
-import "./Header.css";
+import React, { useEffect, useState } from "react";
 import { NavLink, NavbarBrand } from "react-bootstrap";
+import "./Header.css";
 
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}
+
+// https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+    useEffect(() => {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+  
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    return windowDimensions;
+  }
+
+function VisitorsCounter() {
+    const [visitors, setVisitors] = useState(0);
+
+    // Loading from localStorage
+    useEffect(() => {
+        const storedVisits = Number(localStorage.getItem("visitCounter")) || 0;
+        setVisitors(storedVisits + 1);
+    }, []);
+
+    // Saving in localStorage
+    useEffect(() => {
+        localStorage.setItem("visitCounter", visitors.toString());
+    }, [visitors]);
+
+    return <p>Visitors:&nbsp;{visitors}</p>;
+}
 
 export default function Header() {
-    return (
-        <>
-            <Navbar sticky="top" expand id="header" bg="light">
-                <Container>
-                    <NavbarBrand href="/">
-                        <img alt="logo"/>
-                    </NavbarBrand>
-                    <Nav>
-                        <NavLink href="#attractions">
-                            ATTRACTIONS
-                        </NavLink>
-                        <NavLink href="#events">
-                            EVENTS
-                        </NavLink>
-                        <NavLink href="#restaurants">
-                            RESTAURANTS
-                        </NavLink>
-                        <NavLink href="#pricing">
-                            PRICING
-                        </NavLink>
-                        <NavLink href="#deets">
-                            ABOUT US
-                        </NavLink>
-                        <NavLink href="#memes">
-                            CONTACT US
-                        </NavLink>
-                        <NavLink id="buy-button" href="#trans">
-                            BUY TICKETS
-                        </NavLink>
-                    </Nav>
-                </Container>
-            </Navbar>
-            {/* <img style={{width: '100%'}} src='header.png' alt=''/> */}
-            
-            {/* <div id="wrapper">
-                <div id="header">
-                    <Nav className="justify-content-center">
-                        <HeaderDropdown title={"AMUSEMENT PARK"} to={"#duh"}>
-                            <a className="dropdown-item" href="#">Rides</a>
-                            <a className="dropdown-item" href="#">Go Karts</a>
-                            <a className="dropdown-item" href="#">Keansburg Games</a>
-                            <a className="dropdown-item" href="#">Beach</a>
-                            <a className="dropdown-item" href="#">Batting Cages</a>
-                            <a className="dropdown-item" href="#">Arcades</a>
-                            <a className="dropdown-item" href="#">Fishing Pier</a>
-                        </HeaderDropdown>
-                        <HeaderDropdown title={"WATERPARK"} to={"#duh"}>
-                            <a className="dropdown-item" href="#">Slides</a>
-                            <a className="dropdown-item" href="#">Kiddie Lagoon</a>
-                            <a className="dropdown-item" href="#">Hot Tub & Warming Pools</a>
-                            <a className="dropdown-item" href="#">Changing Rooms</a>
-                            <a className="dropdown-item" href="#">Lockers</a>
-                            <a className="dropdown-item" href="#">Dining</a>
-                            <a className="dropdown-item" href="#">Pricing</a>
-                        </HeaderDropdown>
-                        <HeaderDropdown title={"DINING"} to={"#duh"}>
-                            <a className="dropdown-item" href="#">Flavor Burst</a>
-                            <a className="dropdown-item" href="#">Boardwalk Grill At The Pavilion Bar</a>
-                            <a className="dropdown-item" href="#">Cotton Candy</a>
-                            <a className="dropdown-item" href="#">Zeppole's</a>
-                            <a className="dropdown-item" href="#">Mambo Nando's</a>
-                            <a className="dropdown-item" href="#">Glenda's Great Fries</a>
-                            <a className="dropdown-item" href="#">Candid Confections</a>
-                            <a className="dropdown-item" href="#"><span className="see-more">More...</span></a>
-                        </HeaderDropdown>
-                        <HeaderDropdown title={"GROUPS"} to={"#duh"}>
-                            <a className="dropdown-item" href="#">Group Packages</a>
-                            <a className="dropdown-item" href="#">Birthday Packages</a>
-                            <a className="dropdown-item" href="#">Fundraising</a>
-                        </HeaderDropdown>
-                        <HeaderDropdown title={"PLAN YOUR VISIT"} to={"#duh"}>
-                            <a className="dropdown-item" href="#">General Information</a>
-                            <a className="dropdown-item" href="#">Directions & Parking</a>
-                            <a className="dropdown-item" href="#">Operating Calendar</a>
-                            <a className="dropdown-item" href="#">History</a>
-                            <a className="dropdown-item" href="#">News</a>
-                            <a className="dropdown-item" href="#">Park Map</a>
-                            <a className="dropdown-item" href="#">Accommodations</a>
-                            <a className="dropdown-item" href="#">Service Animals</a>
-                            <a className="dropdown-item" href="#">Location Shoots</a>
-                            <a className="dropdown-item" href="#">Events</a>
-                        </HeaderDropdown>
-                        <HeaderDropdown className="buy-button" title={"BUY TICKETS"} to={"#duh"}>
-                            <a className="dropdown-item" href="#">Ride Height & Ticketing</a>
-                            <a className="dropdown-item" href="#">Special Offers</a>
-                            <a className="dropdown-item" href="#">Ticket Information</a>
-                        </HeaderDropdown>
-                    </Nav>
-                    <Marquee className="header-marquee">
-                        The amusement park is open this Friday 5/24 starting at 5pm for our $20 unlimited wristband deal. The waterpark & amusement park will be open Sat 5/25- Sun 5/27 starting at 11am. Waterpark & Limited kiddie rides open at 11am, major rides, restaurants, arcades, and limited games open at 12pm. Majority attractions at go karts open at 1pm.
-                    </Marquee>
-                </div>
+    const [scrolled, setScrolled] = useState(false);
+    const { height: vh } = useWindowDimensions();
+  
 
-            </div> */}
-        </>
+    useEffect(() => {
+        const shrinkNavbar = () => {
+            if (window !== undefined) {
+                let windowHeight = window.scrollY;
+                setScrolled((prev) => {
+                    if (!prev && (windowHeight >= 0.1 * vh)) {
+                        return true;
+                    }
+
+                    if (prev && (windowHeight < 0.01 * vh)) {
+                        return false;
+                    }
+              
+                    return prev;
+                });
+            }
+        };
+
+        window.addEventListener('scroll', shrinkNavbar);
+
+        return () => {
+            window.removeEventListener('scroll', shrinkNavbar);
+        };
+    }, [vh]);
+
+    return (
+        <Navbar fixed="top" expand id="header" bg="light" className={`${scrolled && 'mini-header'}`}>
+            <Container className="me-0">
+                <NavbarBrand href="/">
+                    <img src="logo.png" alt="logo" />
+                </NavbarBrand>
+                <Nav>
+                    <NavLink href="#attractions">
+                        ATTRACTIONS
+                    </NavLink>
+                    <NavLink href="#events">
+                        EVENTS
+                    </NavLink>
+                    <NavLink href="#restaurants">
+                        RESTAURANTS
+                    </NavLink>
+                    <NavLink href="#pricing">
+                        PRICING
+                    </NavLink>
+                    <NavLink href="#deets">
+                        ABOUT US
+                    </NavLink>
+                    <NavLink href="#memes">
+                        CONTACT US
+                    </NavLink>
+                    <NavLink id="buy-button" href="#trans">
+                        BUY TICKETS
+                    </NavLink>
+                </Nav>
+                <VisitorsCounter />
+            </Container>
+        </Navbar>
     )
 }

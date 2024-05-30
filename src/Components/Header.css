@@ -1,6 +1,6 @@
 #header {
     background-color: #6CC1F7 !important;
-    height: 10vh;
+    height: 20vh;
 }
 
 nav {
@@ -140,7 +140,6 @@ nav {
 }
 
 .footer {
-  position: relative;
   z-index: 3;
 }
 
@@ -291,6 +290,23 @@ nav {
 }
 #header img {
   max-width: 100%;
-  height: 80px;
+  height: 20vh;
+  min-height: 100%;
   vertical-align: top;
+}
+
+#header {
+  transition: 0.5s;
+}
+
+#header .navbar-brand img {
+  transition: 0.5s;
+}
+
+.mini-header {
+  height: 10vh !important;
+}
+
+.mini-header img {
+  height: 10vh !important;
 }

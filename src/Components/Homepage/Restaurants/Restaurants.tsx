@@ -9,7 +9,7 @@ export default function Restaurants()
         <Container className="container-xl-forced">
             <Row className="p-4">
                 <Col md='5' className="pb-4 pb-md-0">
-                    <InfoImage style={{minHeight: '50vh'}} className="main-info-image" image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/DSC04446-Edit.jpg_compressed-600x420.jpeg" location="A" name="V" openHours="C"/>
+                    <InfoImage style={{minHeight: '50vh'}} id="main-info-image" image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/DSC04446-Edit.jpg_compressed-600x420.jpeg" location="A" name="V" openHours="C"/>
                 </Col>
                 <Col md='7'>
                     <Stack direction='vertical' className="justify-content-between" gap={3}>

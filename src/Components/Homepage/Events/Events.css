@@ -1,3 +1,11 @@
 #events .info-image .image-container {
     aspect-ratio: 10 / 9;
 }
+
+#events .info-title {
+    transition: all 0.1s linear;
+}
+
+#events .info-title:hover {
+    color: #DC502C;
+}

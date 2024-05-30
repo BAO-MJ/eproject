@@ -4,9 +4,10 @@ import './Attractions.css';
 
 function Portfolio({ image = '', description }: Readonly<{ image?: string, description: string }>) {
     return (
-        <Col className={"image-wrapper portfolio flex-grow-1 d-flex"}>
+        <Col className={"portfolio"}>
             <div className="image-container">
-                <Image fluid className={image == '' ? "image-placeholder" : ''} src={image} alt={"place of fun"}/>
+                <Image fluid className={image === '' ? "image-placeholder" : ''} src={image} alt={"place of fun"}/>
+                <div className="banner-darken"/>
             </div>
             <div className="portfolio-desc">
                 <span>{description}</span>
@@ -17,11 +18,11 @@ function Portfolio({ image = '', description }: Readonly<{ image?: string, descr
 
 export default function Attractions() {
     return (
-        <Container className="container-xl-forced d-flex flex-column">
+        <Container className="container-xl-forced d-flex flex-grow-1 flex-column">
             <Row className="gx-20 px-5 py-4">
-                <Portfolio image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/water-park.png" description='hello' />
-                <Portfolio image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/rollercoaster.png" description='hi' />
-                <Portfolio image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/giant-slide.png" description='faku' />
+                <Portfolio image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/water-park.png" description='Water park' />
+                <Portfolio image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/rollercoaster.png" description='Rollercoaster' />
+                <Portfolio image="https://keansburgamusementpark.com/wp-content/uploads/2024/03/giant-slide.png" description='Giant slide' />
             </Row>
         </Container>
     );
