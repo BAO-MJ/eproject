@@ -6,7 +6,7 @@ export default function Title() {
     return (
         <div className="flex-grow-1">
             <div className="banner-darken" />
-            <Container fluid id="park-title" className="mx-5">
+            <Container id="park-title" className="mx-5">
                 <Row>
                     <h1 style={{textTransform: 'uppercase'}}>KEANSBURG AMUSEMENT PARK</h1>
                 </Row>

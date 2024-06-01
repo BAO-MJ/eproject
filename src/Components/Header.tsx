@@ -77,7 +77,7 @@ export default function Header() {
     }, [vh]);
 
     return (
-        <Navbar fixed="top" expand id="header" bg="light" className={`${scrolled && 'mini-header'}`}>
+        <Navbar fixed="top" expand id="header" className={`${scrolled && 'mini-header'}`}>
             <Container className="me-0">
                 <NavbarBrand href="/">
                     <img src="logo.png" alt="logo" />

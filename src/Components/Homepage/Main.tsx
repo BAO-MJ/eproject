@@ -7,7 +7,7 @@ import './Main.css';
 
 export default function Main() {
     return (
-        <main style={{ width: '100%', marginTop: '20vh' }}>
+        <main style={{ width: '100%'}}>
             <section id='title'>
                 <Title />
             </section>

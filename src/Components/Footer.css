@@ -1,0 +1,73 @@
+#footer {
+    background-color: #2657C1;
+    padding: 50px 30px;
+}
+
+#footer .hstack * {
+    transition: all 0.1s linear;
+}
+
+#footer-logo {
+    
+}
+
+#footer .hstack > div {
+    padding: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+#footer .hstack > div:hover {
+    border: 1px solid transparent;
+}
+
+#footer svg {
+    color: white;
+}
+
+#fb-icon:hover {
+    background: linear-gradient(to bottom, #00c6ff,#0072ff);
+}
+
+.social-icon {
+    background-origin: border-box;
+}
+
+#x-icon:hover {
+    background-color: black;
+}
+
+#ytb-icon:hover {
+    background-color: white;
+}
+
+#ytb-icon:hover > svg {
+    color: red !important;
+}
+
+#inst-icon:hover {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+
+#tiktok-icon:hover {
+    background-color: #183153;
+}
+
+#footer h2 {
+    color: #F7F7F7;
+    font-weight: bold;
+}
+
+#footer span {
+    color: #F7F7F7;
+}
+
+#contact-tel b {
+    color: #FFB830;
+    transition: all 0.2s linear;
+}
+
+#contact-tel b:hover {
+    color: #F7F7F7;
+}

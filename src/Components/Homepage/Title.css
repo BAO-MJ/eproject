@@ -1,10 +1,9 @@
 #title {
     background-image: url('/public/header.png');
     background-size: cover;
-}
-
-#title {
-    min-height: 80vh !important;
+    
+    /* min-height: 80vh !important; */
+    width: 100%;
 }
 
 #title > div {
