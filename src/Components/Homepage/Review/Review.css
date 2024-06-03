@@ -19,14 +19,12 @@
 }
 
 .review-stars {
-    /* height: 20%; */
     font-size: 48px;
     color: red !important;
 }
 
 .review-text {
     font-size: 36px;
-    /* height: 60%; */
 }
 
 .review-reviewer {

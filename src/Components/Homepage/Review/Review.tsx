@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Carousel, CarouselItem, Container } from "react-bootstrap";
+import React from "react";
+import { Carousel, CarouselItem } from "react-bootstrap";
 import './Review.css';
 
 type CustomerReview = {
