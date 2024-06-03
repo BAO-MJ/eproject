@@ -3,55 +3,57 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 import "./Header.css";
-import { NavItem, NavLink, NavbarBrand, DropdownDivider, DropdownMenu } from "react-bootstrap";
-import { HeaderDropdown } from "./HeaderDropdown.tsx";
-// import logo from"../assets/images/loki.jpg";
+import {
+  NavItem,
+  NavLink,
+  NavbarBrand,
+  DropdownDivider,
+  DropdownMenu,
+} from "react-bootstrap";
+
+import About from "../pages/About.js";
+import Contact from "../pages/Contact.js";
+import { Routes, Route } from "react-router-dom";
+import Buytickets from "../pages/Buytickets.js";
 
 export default function Header() {
-    return (
-        
-        <>
-            <Navbar expand fixed="top" id="header" bg="light">
-            {/* <img src={logo}></img> */}
-                <Container>
-                
-                    <NavbarBrand href="/">
-                    
-                    </NavbarBrand>
-                    <Nav>
-                        <NavLink href="#deets">
-                            ATTRACTIONS
-                        </NavLink>
-                        <NavLink href="#deets">
-                            RESTAURANTS
-                        </NavLink>
-                        <NavLink href="#deets">
-                            ENTERTAINMENT
-                        </NavLink>
-                        <NavLink href="#deets">
-                            PRICING
-                        </NavLink>
-                        <NavLink href="#deets">
-                            ABOUT US
-                        </NavLink>
-                        <NavLink href="#memes">
-                            CONTACT US
-                        </NavLink>
-                        <NavLink id="buy-button" href="#trans">
-                            BUY TICKETS
-                        </NavLink>
-                    </Nav>
-                </Container>
-            </Navbar>
-            <div>
-            <img style={{width: '100%'}} src='header.png' alt=''/>
-            </div>
-            {/* <marquee className="header-marquee">
+  return (
+    <>
+      <Navbar expand fixed="top" id="header" bg="light">
+        {/* <img src={"loki.jpg"}></img> */}
+        <Container>
+          <NavbarBrand href="/"></NavbarBrand>
+          <Nav>
+            <NavLink href="#deets">ATTRACTIONS</NavLink>
+            <NavLink href="#deets">RESTAURANTS</NavLink>
+            <NavLink href="#deets">ENTERTAINMENT</NavLink>
+            <NavLink href="#deets">PRICING</NavLink>
+            <NavLink href="/about">ABOUT US</NavLink>
+            <NavLink href="/contact">CONTACT US</NavLink>
+            <NavLink id="buy-button" href="/trans">
+              BUY TICKETS
+            </NavLink>
+       
+          </Nav>
+        </Container>
+      </Navbar>
+      
+     
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/trans" element={<Buytickets />} />
+       
+
+      </Routes>
+      {/* <div>
+        <img style={{ width: "100%" }} src="header.png" alt="" />
+      </div> */}
+      {/* <marquee className="header-marquee">
                         The amusement park is open this Friday 5/24 starting at 5pm for our $20 unlimited wristband deal. The waterpark & amusement park will be open Sat 5/25- Sun 5/27 starting at 11am. Waterpark & Limited kiddie rides open at 11am, major rides, restaurants, arcades, and limited games open at 12pm. Majority attractions at go karts open at 1pm.
                     </marquee> */}
-          
-            
-            {/* <div id="wrapper">
+
+      {/* <div id="wrapper">
                 <div id="header">
                     <Nav className="justify-content-center">
                         <HeaderDropdown title={"AMUSEMENT PARK"} to={"#duh"}>
@@ -111,6 +113,6 @@ export default function Header() {
                 </div>
 
             </div> */}
-        </>
-    )
+    </>
+  );
 }

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export default function Footer()
-{
-    return (
-        <footer className="footer" role="contentinfo">
+const Footer = () => {
+  return (
+    <div>
+       <footer className="footer" role="contentinfo">
         <div className="inner">
           <div className="footer-inner">
             <div className="footer-header">
@@ -81,5 +81,8 @@ export default function Footer()
           </div>
         </div>
       </footer>
-    )
+    </div>
+  )
 }
+
+export default Footer

@@ -15,7 +15,13 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -29,7 +35,37 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <div id="root"></div>
+    <script>
+      $(document).ready(function () {
+        $(".vc_tta-panel-heading ").click(function () {
+          $(this).parent().children(".vc_tta-panel-body").slideToggle();
+        });
+      });
+    </script>
+    
+<!-- <script>
+  let iconcart=document.querySelector('.iconcart');
+let cart=document.querySelector('.cart');
+let container=document.querySelector('.container');
+let close=document.querySelector('.close');
+
+iconcart.addEventListener('click',()=>{
+  if(cart.style.right =='-100%'){
+    cart.style.right='0';
+    container.style.transfrom='translateX(-400px)';
+  }else{
+    cart.style.right='-100%';
+    container.style.transfrom='translateX(0)';
+  }
+})
+close.addEventListener('click',()=>{
+  cart.style.right='-100%';
+  container.style.transform='translate(0)';
+})
+</script> -->
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

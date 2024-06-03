@@ -1,10 +1,10 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React from 'react'
+import { Container } from 'react-bootstrap'
 
-export default function Main() {
+const Main = () => {
   return (
-    <body>
-      <section id="attractions" style={{ backgroundColor: "while" }}>
+    <div>
+       <section id="attractions" style={{ backgroundColor: "while" }}>
         <Container
           className="justify-content-center"
           style={{ minHeight: "300px" }}
@@ -32,9 +32,8 @@ export default function Main() {
           </div>
         </div>
       </section>
-     
-     
-      
-    </body>
-  );
+    </div>
+  )
 }
+
+export default Main
