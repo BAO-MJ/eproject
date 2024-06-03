@@ -8,7 +8,7 @@ export default function Title() {
             <div className="banner-darken" />
             <Container id="park-title" className="mx-5">
                 <Row>
-                    <h1 style={{textTransform: 'uppercase'}}>KEANSBURG AMUSEMENT PARK</h1>
+                    <h1 style={{textTransform: 'uppercase'}}>Keansburg Amusement Park</h1>
                 </Row>
                 <Row>
                     <h3 style={{textTransform: 'uppercase'}}><b>An amusement park for everyone</b></h3>

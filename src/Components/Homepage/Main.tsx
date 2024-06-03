@@ -2,8 +2,10 @@ import React from "react";
 import Attractions from './Attractions/Attractions.tsx';
 import Restaurants from './Restaurants/Restaurants.tsx';
 import Events from './Events/Events.tsx';
-import Title from './Title.tsx';
+import Title from './Title/Title.tsx';
 import './Main.css';
+import Newsletter from "./Newsletter/Newsletter.tsx";
+import Review from "./Review/Review.tsx";
 
 export default function Main() {
     return (
@@ -22,6 +24,12 @@ export default function Main() {
             <section id='restaurants' style={{ backgroundColor: 'lightblue' }}>
                 <h1>RESTAURANTS</h1>
                 <Restaurants />
+            </section>
+            <section id="newsletter">
+                <Newsletter/>
+            </section>
+            <section id="review">
+                <Review/>
             </section>
         </main>
     )

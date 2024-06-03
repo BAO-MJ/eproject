@@ -1,0 +1,35 @@
+#review {
+    background-color: #FFB830;
+    min-height: 60vh;
+}
+
+#review * {
+    text-align: center;
+    font-weight: 500;
+    color: #F7F7F7;
+}
+
+#review .carousel-inner {
+    min-height: 60vh;
+}
+
+.review-item {
+    position: relative;
+    height: 100%;
+}
+
+.review-stars {
+    /* height: 20%; */
+    font-size: 48px;
+    color: red !important;
+}
+
+.review-text {
+    font-size: 36px;
+    /* height: 60%; */
+}
+
+.review-reviewer {
+    font-size: 24px;
+    bottom: 0;
+}

@@ -1,6 +1,7 @@
 #header {
-    background-color: transparent;
+    background-color: rgba(61, 178, 255, 0.4);
     height: 20vh;
+    transition: 0.5s;
 }
 
 nav {
@@ -310,10 +311,6 @@ nav {
     vertical-align: top;
 }
 
-#header {
-    transition: 0.5s;
-}
-
 #header .navbar-brand img {
     transition: 0.5s;
 }
@@ -326,4 +323,10 @@ nav {
 
 .mini-header img {
     height: 10vh !important;
+}
+
+#visit-counter {
+    padding: 10px 20px;
+    background-color: #FFEDDA;
+    color: red;
 }

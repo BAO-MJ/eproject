@@ -16,18 +16,18 @@ function getWindowDimensions() {
 // https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs
 function useWindowDimensions() {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-  
+
     useEffect(() => {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-      }
-  
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
-  
+
     return windowDimensions;
-  }
+}
 
 function VisitorsCounter() {
     const [visitors, setVisitors] = useState(0);
@@ -43,13 +43,21 @@ function VisitorsCounter() {
         localStorage.setItem("visitCounter", visitors.toString());
     }, [visitors]);
 
-    return <p>Visitors:&nbsp;{visitors}</p>;
+    return <p id="visit-counter"><b>Visitors:&nbsp;{visitors}</b></p>;
 }
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const { height: vh } = useWindowDimensions();
-  
+
+    useEffect(() => {
+        if (window !== undefined) {
+            let windowHeight = window.scrollY;
+            if (windowHeight > 0) {
+                setScrolled(true);
+            }
+        }
+    }, []);
 
     useEffect(() => {
         const shrinkNavbar = () => {
@@ -63,7 +71,7 @@ export default function Header() {
                     if (prev && (windowHeight < 0.01 * vh)) {
                         return false;
                     }
-              
+
                     return prev;
                 });
             }

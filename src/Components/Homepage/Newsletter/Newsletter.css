@@ -1,0 +1,13 @@
+#newsletter {
+    background: url(/public/test.png);
+    background-position: 50% 50%;
+}
+
+#newsletter h1, #newsletter h3 {
+    text-align: center;
+}
+
+#newsletter h1 {
+    font-weight: 700;
+    font-size: 4em;
+}
