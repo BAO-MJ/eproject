@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Runaway Rapids – 3 Hour Admission",
+        "price": 39.00,
+        "image": "https://keansburgamusementpark.com/wp-content/uploads/2015/03/runawayrapids.png"
+    },
+    {
+        "id": 2,
+        "name": "Keansburg Amusement Park 200 Ticket Book",
+        "price": 159.95,
+        "image": "https://keansburgamusementpark.com/wp-content/uploads/2015/04/200ticketbook-1.png"
+    },
+    {
+        "id": 3,
+        "name": "Keansburg Amusement Park 50 Ticket Sheet",
+        "price": 49.95,
+        "image": "https://keansburgamusementpark.com/wp-content/uploads/2015/04/50ticket1-1.png"
+    },
+    {
+        "id": 4,
+        "name": "Keansburg Amusement Park 100 Ticket Book",
+        "price": 89.95,
+        "image": "https://keansburgamusementpark.com/wp-content/uploads/2015/04/100ticketbook-1.png"
+    }
+]

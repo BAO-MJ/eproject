@@ -15,6 +15,7 @@ import About from "../pages/About.js";
 import Contact from "../pages/Contact.js";
 import { Routes, Route } from "react-router-dom";
 import Buytickets from "../pages/Buytickets.js";
+import Pricing from "../Pricing/Pricing.js";
 
 export default function Header() {
   return (
@@ -27,7 +28,7 @@ export default function Header() {
             <NavLink href="#deets">ATTRACTIONS</NavLink>
             <NavLink href="#deets">RESTAURANTS</NavLink>
             <NavLink href="#deets">ENTERTAINMENT</NavLink>
-            <NavLink href="#deets">PRICING</NavLink>
+            <NavLink href="/pricing">PRICING</NavLink>
             <NavLink href="/about">ABOUT US</NavLink>
             <NavLink href="/contact">CONTACT US</NavLink>
             <NavLink id="buy-button" href="/trans">
@@ -43,7 +44,7 @@ export default function Header() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/trans" element={<Buytickets />} />
-       
+        <Route path="/pricing" element={<Pricing />} />
 
       </Routes>
       {/* <div>

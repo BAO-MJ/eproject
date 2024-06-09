@@ -1,182 +1,96 @@
-import React, { useEffect } from "react";
-import { BsCartCheck } from "react-icons/bs";
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
 
-const Buytickets = () => {
-  // <div id="pagebanner">
-  //   <div className="inner">
-  //     <div className="pagebanner-image">
-  //       <img
-  //         src="https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/banners/page-banner.png"
-  //         alt="Default Thumbnail"
-  //       ></img>{" "}
-  //     </div>
-  //   </div>
-  //   <main id="page-wrapper">
-  //     <div className="inner">
-  //       <div id="content">
-  //         <article className="post-11811 page type-page status-publish hentry">
-  //           <header role="heading">
-  //             <h1 className="post__title_one">Buy Tickets</h1>
-  //           </header>
+function Buytickets() {
+  const [validated, setValidated] = useState(false);
 
-  //           <div className="vc_row wpb_row vc_row-fluid vc_custom_1563799369229">
-  //             <div className="wpb_column vc_column_container vc_col-sm-12">
-  //               <div className="vc_column-inner vc_custom_1563799382947">
-  //                 <div className="wpb_wrapper">
-  //                   <div className="wpb_text_column wpb_content_element ">
-  //                     <div className="wpb_wrapper">
-  //                       <h3 style={{ textAlign: "center" }}>
-  //                         <span style={{ fontSize: "medium" }}>
-  //                           Waterpark tickets are now available for purchase
-  //                           online. Online waterpark tickets are valid for the
-  //                           2024 season. All amusement park tickets or
-  //                           upgrades must be purchased at the park the day of
-  //                           your visit.
-  //                         </span>
-  //                       </h3>
-  //                     </div>
-  //                   </div>
-  //                   <div className="vc_row wpb_row vc_inner vc_row-fluid">
-  //                     <div className="wpb_column vc_column_container vc_col-sm-12">
-  //                       <div className="vc_column-inner">
-  //                         <div className="wpb_wrapper">
-  //                           <div className="wpb_text_column wpb_content_element wpb_animate_when_almost_visible wpb_top-to-bottom top-to-bottom vc_custom_1711166133891 centered wpb_start_animation animated">
-  //                             <div className="wpb_wrapper_two">
-  //                               <p>
-  //                                 <a href="https://keansburgamusementpark.com/wp-content/uploads/2015/04/runawayrapids.png">
-  //                                   <img
-  //                                     fetchpriority="high"
-  //                                     decoding="async"
-  //                                     className="alignnone wp-image-3392 size-medium"
-  //                                     src="https://keansburgamusementpark.com/wp-content/uploads/2015/04/runawayrapids-300x186.png"
-  //                                     alt=""
-  //                                     width="300"
-  //                                     height="186"
-  //                                     srcset="https://keansburgamusementpark.com/wp-content/uploads/2015/04/runawayrapids-300x186.png 300w, https://keansburgamusementpark.com/wp-content/uploads/2015/04/runawayrapids.png 459w"
-  //                                     sizes="(max-width: 300px) 100vw, 300px"
-  //                                   ></img>
-  //                                 </a>
-  //                               </p>
-  //                             </div>
-  //                           </div>
-  //                           <div
-  //                             className="vc_empty_space"
-  //                             style={{ height: "25px" }}
-  //                           >
-  //                             <span className="vc_empty_space_inner"></span>
-  //                           </div>
-  //                         </div>
-  //                       </div>
-  //                     </div>
-  //                   </div>
-  //                   <div className="vc_btn3-container vc_btn3-center">
-  //                     <a
-  //                       style={{ backgroundColor: "red", color: "#ffffff" }}
-  //                       className="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-custom"
-  //                       href="/Pay"
-  //                       title=""
-  //                     >
-  //                       BUY NOW
-  //                     </a>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //           <div className="vc_row wpb_row vc_row-fluid">
-  //             <div className="wpb_column vc_column_container vc_col-sm-12">
-  //               <div className="vc_column-inner">
-  //                 <div className="wpb_wrapper">
-  //                   <div
-  //                     className="vc_empty_space"
-  //                     style={{ height: "32px" }}
-  //                   >
-  //                     <span className="vc_empty_space_inner"></span>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </article>
-  //       </div>
-  //     </div>
-  //   </main>
-  // </div>
-  useEffect(() => {
-    let iconcart = document.querySelector(".iconcart");
-    let cart = document.querySelector(".cart");
-    let container = document.querySelector(".container");
-    let close = document.querySelector(".close");
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-    const cartClick = () => {
-      if (cart.style.right == "-100%") {
-        cart.style.right = "0";
-        container.style.transfrom = "translateX(-400px)";
-      } else {
-        cart.style.right = "-100%";
-        container.style.transfrom = "translateX(0)";
-      }
-    };
-
-    const closeClick = () => {
-      cart.style.right = "-100%";
-      container.style.transform = "translate(0)";
-    };
-
-    iconcart.addEventListener("click", cartClick);
-    close.addEventListener("click", closeClick);
-    return () => {
-      iconcart.removeEventListener("click", cartClick);
-      close.removeEventListener("click", closeClick);
-    };
-  }, []);
+    setValidated(true);
+  };
 
   return (
-    <div id="loki" style={{ minHeight: "750px" }}>
-      <div className="container">
-        <header>
-          <h1>Buy Tickets</h1>
-          <div className="iconcart">
-            <div className="totalQuantity">0</div>
-            <BsCartCheck />
-          </div>
-        </header>
-        <div className="listProduct">
-          <div className="item">
-            <img src="https://keansburgamusementpark.com/wp-content/uploads/2015/03/runawayrapids.png"></img>
-            <h2>Runaway Rapids –3 Hour Admission</h2>
-            <div className="price">$39.00</div>
-            <button>Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div className="cart">
-        <h2>CART</h2>
-        <div className="hulk">
-          <div className="panda">
-            <img src="https://keansburgamusementpark.com/wp-content/uploads/2015/03/runawayrapids.png"></img>
-            <div className="content">
-              <div className="name">
-                Keansburg Amusement Park 50 Ticket Sheet
-              </div>
-              <div className="price">$49.95</div>
-            </div>
-            <div className="quantity">
-              <button>-</button>
-              <span className="value">3</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div className="buttons">
-          <div className="close">Close</div>
-          <div id="checkout">
-            <a href="checkout.js">Checkout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>First name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="First name"
+            defaultValue="Mark"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustom02">
+          <Form.Label>Last name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Last name"
+            defaultValue="Otto"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+          <Form.Label>Username</Form.Label>
+          <InputGroup hasValidation>
+            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please choose a username.
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Form.Group>
+      </Row>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="6" controlId="validationCustom03">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="text" placeholder="City" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid city.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom04">
+          <Form.Label>State</Form.Label>
+          <Form.Control type="text" placeholder="State" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid state.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom05">
+          <Form.Label>Zip</Form.Label>
+          <Form.Control type="text" placeholder="Zip" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid zip.
+          </Form.Control.Feedback>
+        </Form.Group>
+      </Row>
+      <Form.Group className="mb-3">
+        <Form.Check
+          required
+          label="Agree to terms and conditions"
+          feedback="You must agree before submitting."
+          feedbackType="invalid"
+        />
+      </Form.Group>
+      <Button type="submit">Submit form</Button>
+    </Form>
   );
-};
+}
 
 export default Buytickets;
