@@ -1,0 +1,12 @@
+#gallery img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#gallery [class*='col-'] > img {
+    height: 200px;
+}
+
+#gallery .row > img {
+    height: 400px;
+}

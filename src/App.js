@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Components/Header.tsx';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Main from './Components/Homepage/Main.tsx';
-import NewFooter from './Components/NewFooter.tsx';
+import Footer from './Components/Footer.tsx';
 import Ticker from './Components/Ticker.tsx';
+import About from './Components/AboutUs/About.js';
+import Contact from './Components/ContactUs/Contact.tsx';
+import BuyTicketModal from './Components/BuyTicketModal.tsx';
+import Buytickets from './Components/Buytickets.js';
+import Pricing from './Components/Pricing/Pricing.tsx';
 import './App.scss';
 import './App.css';
+import './bootstrap-side-modals.css';
 // palette:
 // https://colorhunt.co/palette/3db2ffffeddaffb830ff2442
 // https://colorhunt.co/palette/008dda41c9e2ace2e1f7eedd
@@ -14,14 +20,21 @@ import './App.css';
 // https://keansburgamusementpark.com/
 // https://www.motocms.com/website-templates/demo/66540.html
 const App = () => {
+    const [modalShow, setModalShow] = useState(false);
     return (
         <div>
             <Router>
-                <Header />
-                <Main />
+                <Header setModalShow={setModalShow}/>
+                <BuyTicketModal show={modalShow} setShow={setModalShow}/>
+                <Routes>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/pricing" element={<Pricing/>}/>
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path='/checkout' element={<Buytickets/>}/>
+                </Routes>
                 <Ticker />
-                <NewFooter />
-                {/* <Footer /> */}
+                <Footer />
             </Router>
         </div>
     )

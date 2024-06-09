@@ -1,0 +1,46 @@
+/* #contact-image {
+    position: fixed;
+    z-index: -1;
+} */
+
+/* #contact-image img {
+    height: 150vh;
+    object-fit: cover;
+}
+
+#contact-image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+} */
+
+/* #contact-title {
+    left: 30px;
+    bottom: 50px;
+    font-weight: bold;
+    color: white;
+} */
+
+#contact-form {
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+/* #contact {
+    background: url("https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/banners/page-banner.png") 50% 50%;
+    background-size: cover;
+} */
+
+#contact {
+    min-height: 160vh;
+    background: url("https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/banners/page-banner.png") 50% 50%;
+    background-size: cover;
+}
+
+#contact-inner {
+    background-color: white;
+    border-radius: 10px;
+}

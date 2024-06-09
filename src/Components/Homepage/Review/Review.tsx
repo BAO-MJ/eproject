@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
 import './Review.css';
+import './Review.scss';
 
 type CustomerReview = {
     stars: number,

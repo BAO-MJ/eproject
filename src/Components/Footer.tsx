@@ -1,84 +1,85 @@
-import React from 'react'
+import React, { useMemo } from "react";
+import './Footer.css';
+import { Container, Row, Col, Image, Stack } from "react-bootstrap";
+import { FaFacebookF, FaInstagram, FaLocationDot, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+import { IconContext } from "react-icons";
 
-export default function Footer() {
+export default function Footer()
+{
+    const socialIconStyles = useMemo(() => ({size: '1.5em'}), []);
+    const contactIconStyles = useMemo(() => ({size: '1.8em'}), []);
+
     return (
-        <footer className="footer" role="contentinfo">
-            <div className="inner">
-                <div className="footer-inner">
-                    <div className="footer-header">
-                        <h2>Stay Connected</h2>
-                    </div>
-                    <div className="footer-socials">
-                        <div className="social-icon facebook">
-                            <a href="https://www.facebook.com/KeansburgAmusementRunawayRapids/"></a>
-                        </div>
-                        <div className="social-icon tiktok">
-                            <a href="https://www.tiktok.com/@keansburgamusementpark"></a>
-                        </div>
-                        <div className="social-icon instagram">
-                            <a href="https://www.instagram.com/keansburg_amusementpark/"></a>
-                        </div>
-                        <div className="social-icon youtube">
-                            <a href="https://www.youtube.com/@keansburgamusementparkruna6333"></a>
-                        </div>
-                    </div>
-                    <div className="footer-widgets">
-                        <div className="widget-column">
-                            <div id="block-6" className="widget widget_block">
-                                <h3>Find us at</h3>
-                                <p>
-                                    275 Beachway
-                                    <br></br>
-                                    Keansburg, NJ 07734
-                                    <br></br>
-                                    Phone: (732) 495-1400
-                                    <br></br>
-                                    Fax: (732) 495-1402
-                                </p>
-                            </div>
-                        </div>
-                        <div className="widget-column">
-                            <div id="block-3" className="widget widget_block">
-                                <h3>Get in Touch</h3>
-                                <p>
-                                    Phone: (732) 495-1400
-                                    <br></br>
-                                    Fax: (732) 495-1402
-                                    <br></br>
-                                    Info@KeansburgAmusementPark.com
-                                </p>
-                            </div>
-                        </div>
-                        <div className="widget-column">
-                            <div id="block-4" className="widget widget_block">
-                                <h3>Park Hours</h3>
-                                <p>
-                                    Depending on the day
-                                    <br></br>
-                                    and the weather, park hours vary.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="widget-column">
-                            <div id="block-5" className="widget widget_block">
-                                <h3>
-                                    <a href="http://localhost:3000/">Media & Press</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="partner-disclaimer">
-                    Proud partner of Coca Cola
-                    <img
-                        src="https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/coca-cola.png"
-                        alt="Coca-Cola brand"
-                    ></img>
-                </div>
-                <div className="footer-copyright">
-                    ©2024 Keansburg Amusement Park | Privacy Policy | Cart
-                </div>
-            </div>
+        <footer id="footer">
+            <Container>
+                <Row>
+                    <Col lg={'3'}>
+                        <Image fluid id="footer-logo" src="logo.png"/>
+                        <Stack direction="horizontal" className="justify-content-center" gap={2}>
+                            <IconContext.Provider value={socialIconStyles}>
+                                <div id="fb-icon" className="social-icon">
+                                    <FaFacebookF/>
+                                </div>
+                                <div id="x-icon" className="social-icon">
+                                    <FaXTwitter/>
+                                </div>
+                                <div id="ytb-icon" className="social-icon">
+                                    <FaYoutube/>
+                                </div>
+                                <div id="inst-icon" className="social-icon">
+                                    <FaInstagram/>
+                                </div>
+                                <div id="tiktok-icon" className="social-icon">
+                                    <FaTiktok/>
+                                </div>
+                            </IconContext.Provider>
+                        </Stack> 
+                    </Col>
+                    <Col lg={'5'} className="mt-5 mt-lg-0">
+                        <Row>
+                        <Col>
+                            <h2 className="pb-3">Pages</h2>
+                            <Stack>
+                                <span>Home</span>
+                                <span>About us</span>
+                                <span>Contact us</span>
+                            </Stack>
+                        </Col>
+                        <Col>
+                            <h2 className="pb-3">Hours</h2>
+                            <Stack>
+                                <span>Mon - Closed</span>
+                                <span>Tue - 9:00 pm - 2:00 am</span>
+                                <span>Wed - 9:00 pm - 2:00 am</span>
+                                <span>Thu - 9:00 pm - 2:00 am</span>
+                                <span>Fri - 9:00 pm - 5:00 am</span>
+                                <span>Sat - Noon - 2:00 am</span>
+                            </Stack>
+                        </Col>
+                        </Row>
+                    </Col>
+                    <Col className="mt-5 mt-lg-0">
+                        <h2 className="pb-3">Contacts</h2>
+                        <Stack gap={3}>
+                            <IconContext.Provider value={contactIconStyles}>
+                                <Container>
+                                    <Row>
+                                        <Col className="contact-icon align-items-center col-2"><FaLocationDot/></Col>
+                                        <Col><span>275 Beachway<br/>Keansburg, NJ 07734</span></Col>
+                                    </Row>
+                                    <Row>
+                                        <Col className="contact-icon justify-content-center col-2"><IoIosMail/></Col>
+                                        <Col><a href="mailto:Info@KeansburgAmusementPark.com"><span>Info@KeansburgAmusementPark.com</span></a></Col>
+                                    </Row>
+                                </Container>
+                            </IconContext.Provider>
+                            <a id="contact-tel" href="tel:1234567891"><h1><b>123 456 7891</b></h1></a>
+                        </Stack>
+                        
+                    </Col>
+                </Row>
+            </Container>
         </footer>
-    )
+    );
 }

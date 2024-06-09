@@ -1,0 +1,7 @@
+#about-image::before {
+    position: absolute;
+    content: "";
+    background: rgb(35 31 32 / 60%);
+    width: 100%;
+    aspect-ratio: calc(1920 / 827);
+}

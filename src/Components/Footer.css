@@ -1,14 +1,11 @@
 #footer {
     background-color: #2657C1;
     padding: 50px 30px;
+    min-height: 90vh;
 }
 
 #footer .hstack * {
     transition: all 0.1s linear;
-}
-
-#footer-logo {
-    
 }
 
 #footer .hstack > div {

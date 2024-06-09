@@ -1,0 +1,17 @@
+#history {
+    font-size: larger;
+}
+
+#history .time-image {
+    width: 0;
+    min-width: 100%;
+}
+
+#history .time-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+#history .time-desc {
+    text-align: center;
+}

@@ -1,0 +1,45 @@
+
+/* .modal-dialog {
+    margin-top: 0 !important;
+    height: 100%;
+    margin-right: 0 !important;
+}
+
+.modal-content {
+    height: 100%;
+    right: 0;
+} */
+
+#buy-modal-body form > .vstack > * {
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 13px 61px 26px 13px;
+    margin-bottom: 14px;
+}
+
+.spinner svg {
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    text-align: center;
+    border: none;
+}
+
+input[type=number]:focus {
+    outline-width: 0;
+}
+
+.modal-icon {
+    font-size: 2em;
+    height: 100%;
+}
