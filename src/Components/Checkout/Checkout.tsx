@@ -27,16 +27,16 @@ const Buytickets = () => {
                                         </div>
                                         <div className="feed-item-list">
                                             <div>
-                                                <h5 className="font-size-16 mb-1">Billing Info</h5>
+                                                <h5 className="font-size-16 mb-1">Representative Info</h5>
                                                 <p className="text-muted text-truncate mb-4">
-                                                    Sed ut perspiciatis unde omnis iste
+                                                    Fill the representative's personal information
                                                 </p>
                                                 <div className="mb-3">
                                                     <Form>
                                                         <Row>
                                                             <Col lg={'4'}>
                                                                 <FormGroup controlId="billing-name" className="mb-3">
-                                                                    <FormLabel>Name</FormLabel>
+                                                                    <FormLabel>Name *</FormLabel>
                                                                     <FormControl type="text" placeholder="Enter name"/>
                                                                 </FormGroup>
                                                             </Col>
@@ -48,19 +48,19 @@ const Buytickets = () => {
                                                             </Col>
                                                             <Col lg={'4'}>
                                                                 <FormGroup controlId="billing-phone" className="mb-3">
-                                                                    <FormLabel>Phone</FormLabel>
+                                                                    <FormLabel>Phone *</FormLabel>
                                                                     <FormControl type="text" placeholder="Enter Phone no." />
                                                                 </FormGroup>
                                                             </Col>
                                                         </Row>
                                                         <FormGroup controlId="billing-address" className="mb-3">
-                                                            <FormLabel>Address</FormLabel>
+                                                            <FormLabel>Address *</FormLabel>
                                                             <FormControl as={"textarea"} rows={4} placeholder="Enter full address" />
                                                         </FormGroup>
                                                         <Row>
                                                             <Col lg={'6'}>
                                                                 <FormGroup controlId="billing-city" className="mb-4 mb-lg-0">
-                                                                    <FormLabel>City</FormLabel>
+                                                                    <FormLabel>City *</FormLabel>
                                                                     <FormControl type="text" placeholder="Enter City" />
                                                                 </FormGroup>
                                                             </Col>
@@ -86,7 +86,7 @@ const Buytickets = () => {
                                             <div>
                                                 <h5 className="font-size-16 mb-1">Ticket Type</h5>
                                                 <p className="text-muted text-truncate mb-4">
-                                                    Neque porro quisquam est
+                                                    Select your preferred ticket type (Recommend using digital ticket)
                                                 </p>
                                                 <div className="mb-3">
                                                     <Row>
@@ -137,7 +137,7 @@ const Buytickets = () => {
                                             <div>
                                                 <h5 className="font-size-16 mb-1">Payment Info</h5>
                                                 <p className="text-muted text-truncate mb-4">
-                                                    Duis arcu tortor, suscipit eget
+                                                    Select your paying method (COD is only allowed for standard ticket)
                                                 </p>
                                             </div>
                                             <div>

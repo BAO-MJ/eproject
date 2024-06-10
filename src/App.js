@@ -27,7 +27,7 @@ const App = () => {
             <Router>
                 <ScrollToTop/>
                 <Header setModalShow={setModalShow}/>
-                <BuyTicketModal show={modalShow} setShow={setModalShow}/>
+                {modalShow && <BuyTicketModal show={modalShow} setShow={setModalShow}/>}
                 <Routes>
                     <Route path="/" element={<Main />} />
                     <Route path="/pricing" element={<Pricing/>}/>

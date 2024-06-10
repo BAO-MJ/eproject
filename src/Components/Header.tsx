@@ -104,23 +104,9 @@ export default function Header({setModalShow}) {
                 <NavbarToggle/>
                 <NavbarCollapse className="justify-content-end">
                     <Nav>
-                        {
-                            location.pathname === '/' ? 
-                            [
-                                <NavLink href="#attractions">
-                                    ATTRACTIONS
-                                </NavLink>,
-                                <NavLink href="#events">
-                                    EVENTS
-                                </NavLink>,
-                                <NavLink href="#restaurants">
-                                    RESTAURANTS
-                                </NavLink>
-                            ] :
-                            <NavLink as={Link} to="/">
-                                HOME
-                            </NavLink>
-                        }
+                        <NavLink as={Link} to="/">
+                            HOME
+                        </NavLink>
                         <NavLink as={Link} to="/pricing">
                             PRICING
                         </NavLink>
