@@ -36,7 +36,7 @@ const reviews: CustomerReview[] = [
 export default function Review()
 {
     return (
-        <Carousel touch className="px-5 pt-3 pb-5" controls={false}>
+        <Carousel touch className="px-5 pt-3 pb-5" interval={3000} controls={false}>
             {reviews.map((review, i) => (
                 <CarouselItem key={i} className="review-item">
                     <p className="review-stars pt-5">{'★'.repeat(review.stars)}</p>

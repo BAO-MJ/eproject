@@ -22,20 +22,24 @@
     cursor: pointer;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+#buy-modal-body input::-webkit-outer-spin-button,
+#buy-modal-body input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
+#buy-modal-body input[type=number] {
     -moz-appearance:textfield; /* Firefox */
     text-align: center;
     border: none;
 }
 
-input[type=number]:focus {
+#buy-modal-body input[type=text]:focus {
+    outline-width: 0;
+}
+
+#buy-modal-body input[type=number]:focus {
     outline-width: 0;
 }
 

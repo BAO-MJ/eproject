@@ -5,14 +5,16 @@ import { Stack, Container, Row, Col, Button, FormControl, Form, FormGroup } from
 
 export default function Newsletter() {
     const [validated, setValidated] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const form = event.currentTarget;
-        if (form.checkValidity() === false) {
+        if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
         }
+        setSuccess(form.checkValidity());
         setValidated(true);
     };
 
@@ -27,10 +29,10 @@ export default function Newsletter() {
                         <Col>
                             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                                 <FormGroup as={Stack} gap={2}>
-                                    <FormControl onChange={() => { setValidated(false); }} type="email" placeholder="YOUR EMAIL ADDRESS*" required />
+                                    <FormControl onChange={() => { setValidated(false); }} type="email" placeholder="Your email address*" required />
                                     <FormControl.Feedback>You have successfully subscribed to the newsletter</FormControl.Feedback>
                                     <FormControl.Feedback type="invalid">Invalid email address</FormControl.Feedback>
-                                    <Button className="ms-auto" type="submit">SIGN UP</Button>
+                                    <Button className={"ms-auto" + (success ? " d-none" : "")} type="submit">Sign Up</Button>
                                 </FormGroup>
                             </Form>
                         </Col>

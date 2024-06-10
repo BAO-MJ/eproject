@@ -127,16 +127,7 @@
     background: linear-gradient(to bottom,#68EACC 0%,#497BE8 100%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pricing .list-group-item {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

@@ -1,29 +1,3 @@
-/* #contact-image {
-    position: fixed;
-    z-index: -1;
-} */
-
-/* #contact-image img {
-    height: 150vh;
-    object-fit: cover;
-}
-
-#contact-image::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    top: 0;
-    left: 0;
-} */
-
-/* #contact-title {
-    left: 30px;
-    bottom: 50px;
-    font-weight: bold;
-    color: white;
-} */
-
 #contact-form {
     background-color: whitesmoke;
     border-radius: 10px;

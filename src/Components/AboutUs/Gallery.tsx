@@ -1,7 +1,6 @@
 import React from "react";
-import { CarouselItem, Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import './Gallery.css';
-import { Carousel } from "react-bootstrap";
 
 const images = [
     "https://keansburgamusementpark.com/wp-content/uploads/2020/02/Dragons-600x420.jpeg",

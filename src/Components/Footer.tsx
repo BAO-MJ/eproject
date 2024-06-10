@@ -42,6 +42,7 @@ export default function Footer()
                             <h2 className="pb-3">Pages</h2>
                             <Stack>
                                 <span>Home</span>
+                                <span>Pricing</span>
                                 <span>About us</span>
                                 <span>Contact us</span>
                             </Stack>

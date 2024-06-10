@@ -7,11 +7,12 @@ import Ticker from './Components/Ticker.tsx';
 import About from './Components/AboutUs/About.js';
 import Contact from './Components/ContactUs/Contact.tsx';
 import BuyTicketModal from './Components/BuyTicketModal.tsx';
-import Buytickets from './Components/Buytickets.js';
+import Buytickets from './Components/Checkout/Checkout.tsx';
 import Pricing from './Components/Pricing/Pricing.tsx';
 import './App.scss';
 import './App.css';
 import './bootstrap-side-modals.css';
+import { ScrollToTop } from './Components/ScrollToTop.tsx';
 // palette:
 // https://colorhunt.co/palette/3db2ffffeddaffb830ff2442
 // https://colorhunt.co/palette/008dda41c9e2ace2e1f7eedd
@@ -24,6 +25,7 @@ const App = () => {
     return (
         <div>
             <Router>
+                <ScrollToTop/>
                 <Header setModalShow={setModalShow}/>
                 <BuyTicketModal show={modalShow} setShow={setModalShow}/>
                 <Routes>

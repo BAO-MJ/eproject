@@ -1,14 +1,13 @@
+.portfolio {
+    height: 100%;
+    overflow: hidden;
+}
+
 .portfolio-desc {
     position: relative;
     text-align: center;
     bottom: 10%;
     width: 100%;
-}
-
-.portfolio-desc > span {
-    display: block;
-    font-size: x-large;
-    font-weight: bold;
     color: white;
     transition: .5s ease all;
 }
@@ -19,7 +18,7 @@
 }
 
 .portfolio:hover .portfolio-desc {
-    bottom: 50%;
+    bottom: 100%;
 }
 
 .portfolio * {
@@ -28,6 +27,16 @@
 
 .portfolio:hover .banner-darken {
     opacity: 0;
+}
+
+.portfolio .banner-darken {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(rgba(0, 0, 0, 0) 0%, #040404a0 100%);
 }
 
 .portfolio .image-container::after {
