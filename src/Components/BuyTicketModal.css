@@ -30,7 +30,7 @@
 }
 
 #buy-modal-body input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+    -moz-appearance: textfield; /* Firefox */
     text-align: center;
     border: none;
 }

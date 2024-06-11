@@ -1,7 +1,7 @@
 #footer {
     background-color: #2657C1;
     padding: 50px 30px;
-    min-height: 90vh;
+    min-height: 85vh;
 }
 
 #footer .hstack * {
@@ -22,6 +22,16 @@
 #footer svg {
     color: white;
 }
+
+#footer #pages a {
+    color: white;
+    transition: 0.2s all;
+}
+
+#footer #pages a:hover {
+    color: #FFB830;
+}
+
 
 #fb-icon:hover {
     background: linear-gradient(to bottom, #00c6ff,#0072ff);

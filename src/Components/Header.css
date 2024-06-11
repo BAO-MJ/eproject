@@ -1,6 +1,5 @@
 #header {
-    /* background-color: rgba(61, 178, 255, 0.4); */
-    height: 20vh;
+    height: 15vh;
     transition: 0.5s;
 }
 
@@ -176,28 +175,20 @@ nav {
     transition: 0.5s;
 }
 
-.mini-header > .container-fluid {
-  background: #3DB2FF !important;
-  transition: 0.5s;
-}
-
-.mini-header {
+.opaque-header {
     background: #3DB2FF !important;
-    height: 10vh !important;
     box-shadow: 0 1px 15px 0 black;
 }
 
-.mini-header::before {
+.opaque-header::before {
     opacity: 0 !important;
-}
-
-.mini-header img {
-    height: 10vh !important;
 }
 
 #visit-counter {
     height: 100%;
     color: red;
+    background-color: #FFEDDA;
+    border-radius: 30px;
 }
 #page-wrapper {
   margin-top: -2px;
@@ -255,7 +246,4 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-#checkout {
-  background-color: #e8bc0e;
 }

@@ -2,11 +2,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useEffect, useState } from "react";
-import { NavLink, NavbarBrand, NavbarCollapse, NavbarText, NavbarToggle } from "react-bootstrap";
+import { Col, NavLink, NavbarBrand, NavbarCollapse, NavbarText, NavbarToggle, Row } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import './Header.scss';
-import MediaQuery from "react-responsive";
+import MediaQuery, { useMediaQuery } from "react-responsive";
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -43,21 +43,17 @@ function VisitorsCounter() {
         localStorage.setItem("visitCounter", visitors.toString());
     }, [visitors]);
 
-    return <NavbarText id="visit-counter"><b>Visitors:&nbsp;{visitors}</b></NavbarText>;
+    return <NavbarText id="visit-counter" className="px-3"><b>Visitors:&nbsp;{visitors}</b></NavbarText>;
 }
 
 export default function Header({setModalShow}) {
     const [scrolled, setScrolled] = useState(false);
     const { width: vw, height: vh } = useWindowDimensions();
+    const isMobile = useMediaQuery({maxWidth: 991.98});
     const location = useLocation();
 
     useEffect(() => {
         if (window !== undefined) {
-            if (vw < 992) {
-                setScrolled(true);
-                return;
-            }
-
             let windowHeight = window.scrollY;
             if (windowHeight > 0) {
                 setScrolled(true);
@@ -68,11 +64,6 @@ export default function Header({setModalShow}) {
     useEffect(() => {
         const shrinkNavbar = () => {
             if (window !== undefined) {
-                if (vw < 992) {
-                    setScrolled(true);
-                    return;
-                }
-
                 let windowHeight = window.scrollY;
                 setScrolled((prev) => {
                     if (!prev && (windowHeight >= 0.1 * vh)) {
@@ -95,34 +86,56 @@ export default function Header({setModalShow}) {
         };
     }, [vw, vh]);
 
+    const [opaque, setOpaque] = useState(false);
+
+    useEffect(() => {
+        if (location.pathname.startsWith('/forms')) {
+            setOpaque(true);
+        }
+        else {
+            setOpaque(false);
+        }
+    }, [location]);
+
     return (
-        <Navbar fixed="top" expand={'xl'} id="header" className={`${scrolled && 'mini-header'}`}>
+        <Navbar expand={'xl'} id="header" className={`${(scrolled || opaque || isMobile) ? 'opaque-header' : ''} ${(opaque || isMobile ? 'sticky-top' : 'fixed-top')}`}>
             <Container fluid>
-                <NavbarBrand href="/">
-                    <img src="logo.png" alt="logo" />
+                <NavbarBrand as={Link} to="/">
+                    <img src="/logo.png" alt="logo" />
                 </NavbarBrand>
                 <NavbarToggle/>
                 <NavbarCollapse className="justify-content-end">
-                    <Nav>
-                        <NavLink as={Link} to="/">
-                            HOME
-                        </NavLink>
-                        <NavLink as={Link} to="/pricing">
-                            PRICING
-                        </NavLink>
-                        <NavLink as={Link} to="/about">
-                            ABOUT US
-                        </NavLink>
-                        <NavLink as={Link} to="/contact">
-                            CONTACT US
-                        </NavLink>
-                        <MediaQuery minWidth={992}>
-                            <NavLink id="buy-button" onClick={() => setModalShow(true)}>
-                                BUY TICKETS
-                            </NavLink>
-                        </MediaQuery>
-                        <VisitorsCounter />
-                    </Nav>
+                    <Row>
+                        <Col sm={'12'}>
+                            <Nav className="justify-content-end">
+                                <NavLink as={Link} to="/forms/sign/in">
+                                    Sign In
+                                </NavLink>
+                                <VisitorsCounter />
+                            </Nav>
+                        </Col>
+                        <Col sm={'12'}>
+                            <Nav className="justify-content-end">
+                                <NavLink as={Link} to="/">
+                                    HOME
+                                </NavLink>
+                                <NavLink as={Link} to="/pricing">
+                                    PRICING
+                                </NavLink>
+                                <NavLink as={Link} to="/about">
+                                    ABOUT US
+                                </NavLink>
+                                <NavLink as={Link} to="/forms/contact">
+                                    CONTACT US
+                                </NavLink>
+                                <MediaQuery minWidth={992}>
+                                    <NavLink id="buy-button" onClick={() => setModalShow(true)}>
+                                        BUY TICKETS
+                                    </NavLink>
+                                </MediaQuery>
+                            </Nav>
+                        </Col>
+                    </Row>
                 </NavbarCollapse>
             </Container>
         </Navbar>

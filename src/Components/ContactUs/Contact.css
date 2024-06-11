@@ -3,17 +3,6 @@
     border-radius: 10px;
 }
 
-/* #contact {
-    background: url("https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/banners/page-banner.png") 50% 50%;
-    background-size: cover;
-} */
-
-#contact {
-    min-height: 160vh;
-    background: url("https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/banners/page-banner.png") 50% 50%;
-    background-size: cover;
-}
-
 #contact-inner {
     background-color: white;
     border-radius: 10px;

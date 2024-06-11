@@ -1,73 +1,98 @@
-import React, { useMemo } from "react";
+import React, { FormEvent, useMemo, useState } from "react";
 import { Button, Col, Container, Form, FormControl, FormSelect, Row, Stack } from "react-bootstrap";
 import './Contact.css';
 import { ReactComponent as ContactImage } from './contact.svg';
 import { FiPhone } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
+import GenericForm from "../GenericForm.tsx";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
     const contactIconStyles = useMemo(() => ({size: '1.8em'}), []);
+    const navigateTo = useNavigate();
+
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+        }
+        else {
+            Swal.fire({title: 'Message sent', icon: 'success', html: 'Thank you for your help.<br/>We\'ll contact you in the near future.'})
+                .then(() => navigateTo('/'));
+        }
+        setValidated(true);
+    };
+
     return (
-        <div id="contact" className="align-content-center">
-            <Container fluid='lg' id="contact-inner" className="p-3">
-                <Row>
-                    <h2 className="text-center fw-bold">Contact Us</h2>
-                </Row>
-                <Row>
-                    <Col md={'6'}>
-                        <Stack className="m-2 p-4" id="contact-form" gap={4}>
-                            <h3 style={{fontWeight: 'bold'}}>Please leave a message for support</h3>
-                            <Form as={Stack} gap={3}>
-                                <FormControl placeholder="Full name*" required />
-                                <FormControl type="email" placeholder="Email*" required />
-                                <FormControl placeholder="Phone number*" required />
-                                <FormSelect>
-                                    <option value="1">Support</option>
-                                    <option value="2">Complain</option>
-                                    <option value="3">Advise</option>
-                                </FormSelect>
-                                <FormControl style={{resize: 'none'}} as="textarea" placeholder="Message" cols={40} rows={7} />
-                            </Form>
-                            <Button className="ms-auto" type="submit">SEND</Button>
+        <GenericForm title={"Contact Us"} id="contact">
+            <Col md={'6'}>
+                <Stack className="m-2 p-4" id="contact-form" gap={3}>
+                    <h3 style={{fontWeight: 'bold'}}>Please leave a message for support</h3>
+                    <Form id="contact-us-form" noValidate validated={validated} onSubmit={handleSubmit}>
+                        <Stack gap={3}>
+                            <FormControl type="text" placeholder="Full name*" required />
+                            <Form.Control.Feedback className="my-0" type="invalid">
+                                Please provide your name.
+                            </Form.Control.Feedback>
+                            <FormControl type="email" placeholder="Email*" required />
+                            <Form.Control.Feedback className="my-0" type="invalid">
+                                Please provide your email.
+                            </Form.Control.Feedback>
+                            <FormControl placeholder="Phone number*" required />
+                            <Form.Control.Feedback className="my-0" type="invalid">
+                                Please provide your phone number.
+                            </Form.Control.Feedback>
                         </Stack>
-                        
-                    </Col>
-                    <Col md={'6'}>
-                        <ContactImage/>
-                        <h3>Head office address:</h3>
-                        <IconContext.Provider value={contactIconStyles}>
-                            <Container>
-                                <Row>
-                                    <Col xs={'1'}>
-                                        <MdOutlineLocationOn/>
-                                    </Col>
-                                    <Col>
-                                        <p>275 Beachway, Keansburg, NJ 07734</p>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={'1'}>
-                                        <FiPhone/>
-                                    </Col>
-                                    <Col>
-                                        <p>(732) 495-1400</p>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={'1'}>
-                                        <MdOutlineEmail/>
-                                    </Col>
-                                    <Col>
-                                        <p>Info@KeansburgAmusementPark.com</p>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </IconContext.Provider>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                    </Form>
+                    <FormSelect>
+                        <option value="1">Support</option>
+                        <option value="2">Complain</option>
+                        <option value="3">Advise</option>
+                    </FormSelect>
+                    <FormControl style={{resize: 'none'}} as="textarea" placeholder="Message" cols={40} rows={7} />
+                    <div className="w-100 d-flex">
+                        <Button form="contact-us-form" className="ms-auto" type="submit">Send</Button>
+                    </div>
+                </Stack>
+            </Col>
+            <Col md={'6'}>
+                <ContactImage/>
+                <h3>Head office address:</h3>
+                <IconContext.Provider value={contactIconStyles}>
+                    <Container>
+                        <Row>
+                            <Col xs={'1'}>
+                                <MdOutlineLocationOn/>
+                            </Col>
+                            <Col>
+                                <p>01 Ly Tu Trong Street, Ninh Kieu District, Can Tho City, Vietnam</p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={'1'}>
+                                <FiPhone/>
+                            </Col>
+                            <Col>
+                                <p>+84 292 383 5581</p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={'1'}>
+                                <MdOutlineEmail/>
+                            </Col>
+                            <Col>
+                                <p>cusc@ctu.edu.vn</p>
+                            </Col>
+                        </Row>
+                    </Container>
+                </IconContext.Provider>
+            </Col>
+        </GenericForm>
     );
 };
 

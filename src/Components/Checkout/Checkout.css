@@ -157,6 +157,9 @@
     border-color: #3b76e1!important
 }
 
+#checkout .font-weight-500 {
+    font-weight: 500 !important;
+}
 
 #checkout .font-size-16 {
     font-size: 16px !important;

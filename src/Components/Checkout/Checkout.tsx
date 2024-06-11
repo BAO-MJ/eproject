@@ -1,21 +1,59 @@
-import React from "react";
-import { Badge, Button, Card, CardBody, Col, Container, Form, FormControl, FormGroup, FormLabel, Row, Table } from "react-bootstrap";
+import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import { Button, Card, CardBody, Col, Container, Form, FormCheck, FormControl, FormGroup, FormLabel, ListGroup, ListGroupItem, Row, Table } from "react-bootstrap";
 import './Checkout.css';
 import { FaShoppingCart } from "react-icons/fa";
 import { FaArrowLeft, FaCreditCard, FaMoneyBill, FaPaypal, FaQrcode, FaTicket, FaWallet } from "react-icons/fa6";
 import { BiSolidReceipt } from "react-icons/bi";
-import PageBanner from "../PageBanner.tsx";
+import { IoTicket } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+
+interface CheckoutData {
+    id: string,
+    tickets: { [name: string]: any },
+    cost: {
+        price: number,
+        total: number,
+        discount: number
+    }
+}
 
 const Buytickets = () => {
+    const [ticketType, setTicketType] = useState('digital');
+    const navigateTo = useNavigate();
+    
+    const onTicketTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setTicketType(event.currentTarget.value);
+    };
+
+    const [ticketData, setOrderData] = useState<CheckoutData>({ id: '', tickets: {}, cost: {price: 0, discount: 0, total: 0} });
+
+    useEffect(() => {
+        setOrderData(JSON.parse(localStorage.getItem('checkout') ?? '{}'));
+    }, []);
+
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+        }
+        else {
+            localStorage.setItem('ticketType', ticketType);
+            navigateTo("/forms/checkout/process");
+        }
+        setValidated(true);
+    };
+
     return (
-        <main id="checkout">
-            <PageBanner image="https://keansburgamusementpark.com/wp-content/themes/barebones/assets/images/banners/page-banner.png"/>
+        <main id="checkout" className="mt-3">
             <Container>
                 <Row>
-                    <p className="h1 text-center text-white"><b>Checkout</b></p>
+                    <p className="h1 text-center"><b>Checkout form</b></p>
                 </Row>
                 <Row>
-                    <Col xl={'8'}>
+                    <Form className="col-xl-8" noValidate validated={validated} onSubmit={handleSubmit}>
                         <Card>
                             <CardBody>
                                 <ol className="activity-checkout mb-0 px-4 mt-3">
@@ -32,46 +70,55 @@ const Buytickets = () => {
                                                     Fill the representative's personal information
                                                 </p>
                                                 <div className="mb-3">
-                                                    <Form>
+                                                    <div>
                                                         <Row>
                                                             <Col lg={'4'}>
                                                                 <FormGroup controlId="billing-name" className="mb-3">
                                                                     <FormLabel>Name *</FormLabel>
-                                                                    <FormControl type="text" placeholder="Enter name"/>
+                                                                    <FormControl type="text" placeholder="Enter name" required/>
+                                                                    <Form.Control.Feedback type="invalid">
+                                                                        Please provide your name.
+                                                                    </Form.Control.Feedback>
                                                                 </FormGroup>
                                                             </Col>
                                                             <Col lg={'4'}>
                                                                 <FormGroup controlId="billing-email-address" className="mb-3">
-                                                                    <FormLabel>Email Address</FormLabel>
-                                                                    <FormControl type="email" placeholder="Enter email" />
+                                                                    <FormLabel>Email Address*</FormLabel>
+                                                                    <FormControl type="email" placeholder="Enter email" required/>
+                                                                    <Form.Control.Feedback type="invalid">
+                                                                        Please provide your email address.
+                                                                    </Form.Control.Feedback>
                                                                 </FormGroup>
                                                             </Col>
                                                             <Col lg={'4'}>
                                                                 <FormGroup controlId="billing-phone" className="mb-3">
                                                                     <FormLabel>Phone *</FormLabel>
-                                                                    <FormControl type="text" placeholder="Enter Phone no." />
+                                                                    <FormControl type="text" placeholder="Enter Phone no." required/>
+                                                                    <Form.Control.Feedback type="invalid">
+                                                                        Please provide your phone number.
+                                                                    </Form.Control.Feedback>
                                                                 </FormGroup>
                                                             </Col>
                                                         </Row>
                                                         <FormGroup controlId="billing-address" className="mb-3">
                                                             <FormLabel>Address *</FormLabel>
-                                                            <FormControl as={"textarea"} rows={4} placeholder="Enter full address" />
+                                                            <FormControl as={"textarea"} rows={4} placeholder="Enter full address" required/>
+                                                            <Form.Control.Feedback type="invalid">
+                                                                Please provide your address.
+                                                            </Form.Control.Feedback>
                                                         </FormGroup>
                                                         <Row>
-                                                            <Col lg={'6'}>
+                                                            <Col lg={'12'}>
                                                                 <FormGroup controlId="billing-city" className="mb-4 mb-lg-0">
                                                                     <FormLabel>City *</FormLabel>
-                                                                    <FormControl type="text" placeholder="Enter City" />
-                                                                </FormGroup>
-                                                            </Col>
-                                                            <Col lg={'6'}>
-                                                                <FormGroup controlId="zip-code" className="mb-0">
-                                                                    <FormLabel>Zip / Postal code</FormLabel>
-                                                                    <FormControl type="text" placeholder="Enter Postal code" />
+                                                                    <FormControl type="text" placeholder="Enter City" required/>
+                                                                    <Form.Control.Feedback type="invalid">
+                                                                        Please provide your current city.
+                                                                    </Form.Control.Feedback>
                                                                 </FormGroup>
                                                             </Col>
                                                         </Row>
-                                                    </Form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -79,7 +126,7 @@ const Buytickets = () => {
                                     <li className="checkout-item">
                                         <div className="avatar checkout-icon p-1">
                                             <div className="avatar-title rounded-circle bg-primary">
-                                                <i className="bx bxs-truck text-white font-size-20" />
+                                                <IoTicket/>
                                             </div>
                                         </div>
                                         <div className="feed-item-list">
@@ -98,6 +145,9 @@ const Buytickets = () => {
                                                                         name="ticket-type"
                                                                         id="digi-ticket"
                                                                         className="card-radio-input"
+                                                                        value={"digital"}
+                                                                        onChange={onTicketTypeChange}
+                                                                        defaultChecked
                                                                     />
                                                                     <span className="card-radio py-3 text-center text-truncate">
                                                                         <FaQrcode className="d-block h1 mb-3 mx-auto"/>
@@ -114,6 +164,8 @@ const Buytickets = () => {
                                                                         name="ticket-type"
                                                                         id="tradi-ticket"
                                                                         className="card-radio-input"
+                                                                        value={"standard"}
+                                                                        onChange={onTicketTypeChange}
                                                                     />
                                                                     <span className="card-radio py-3 text-center text-truncate">
                                                                         <FaTicket className="d-block h1 mb-3 mx-auto"/>
@@ -151,6 +203,9 @@ const Buytickets = () => {
                                                                     name="pay-method"
                                                                     id="pay-methodoption1"
                                                                     className="card-radio-input"
+                                                                    value={"card"}
+                                                                    required
+                                                                    defaultChecked
                                                                 />
                                                                 <span className="card-radio py-3 text-center text-truncate">
                                                                     <FaCreditCard className="d-block h2 mb-3 mx-auto" />
@@ -167,6 +222,8 @@ const Buytickets = () => {
                                                                     name="pay-method"
                                                                     id="pay-methodoption2"
                                                                     className="card-radio-input"
+                                                                    value={"paypal"}
+                                                                    required
                                                                 />
                                                                 <span className="card-radio py-3 text-center text-truncate">
                                                                     <FaPaypal className="d-block h2 mb-3 mx-auto" />
@@ -183,10 +240,11 @@ const Buytickets = () => {
                                                                     name="pay-method"
                                                                     id="pay-methodoption3"
                                                                     className="card-radio-input"
-                                                                    defaultChecked=""
+                                                                    value={"cod"}
+                                                                    required
                                                                 />
                                                                 <span className="card-radio py-3 text-center text-truncate">
-                                                                    <FaMoneyBill className="d-block h2 mb-3 mx-auto" />
+                                                                    <FaMoneyBill className={"d-block h2 mb-3 mx-auto"} />
                                                                     <span>Cash on Delivery</span>
                                                                 </span>
                                                             </label>
@@ -201,131 +259,52 @@ const Buytickets = () => {
                         </Card>
                         <Row className="my-4">
                             <Col>
-                                <Button variant="link" className="text-muted" href="ecommerce-products.html">
-                                    <FaArrowLeft/><span className="align-middle">&nbsp;Continue Shopping</span>
+                                <Button variant="link" className="text-muted" href='#'>
+                                    <FaArrowLeft/><span className="align-middle">&nbsp;Edit Ticket</span>
                                 </Button>
                             </Col>
                             <Col>
                                 <div className="text-end mt-2 mt-sm-0">
-                                    <Button variant="success" href="#">
+                                    <Button variant="success" type="submit">
                                         <FaShoppingCart/><span className="align-middle">&nbsp;Proceed</span>
                                     </Button>
                                 </div>
                             </Col>
                         </Row>
-                    </Col>
+                    </Form>
                     <Col xl={'4'}>
-                        <Card className="checkout-order-summary">
+                        <Card className="checkout-summary">
                             <CardBody>
                                 <div className="p-3 bg-light mb-3">
                                     <h5 className="font-size-16 mb-0">
-                                        Order Summary <span className="float-end ms-2">#MN0124</span>
+                                        Ticket Summary <span className="float-end ms-2">{ticketData.id}</span>
                                     </h5>
                                 </div>
-                                <Table responsive>
-                                    <table className="table table-centered mb-0 table-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th
-                                                    className="border-top-0"
-                                                    style={{ width: 110 }}
-                                                    scope="col"
-                                                >
-                                                    Product
-                                                </th>
-                                                <th className="border-top-0" scope="col">
-                                                    Product Desc
-                                                </th>
-                                                <th className="border-top-0" scope="col">
-                                                    Price
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <img
-                                                        src="https://www.bootdey.com/image/280x280/FF00FF/000000"
-                                                        alt="product-img"
-                                                        title="product-img"
-                                                        className="avatar-lg rounded"
-                                                    />
-                                                </th>
-                                                <td>
-                                                    <h5 className="font-size-16 text-truncate">
-                                                        <a href="#" className="text-dark">
-                                                            Waterproof Mobile Phone
-                                                        </a>
-                                                    </h5>
-                                                    <p className="text-muted mb-0">
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star-half text-warning" />
-                                                    </p>
-                                                    <p className="text-muted mb-0 mt-1">$ 260 x 2</p>
-                                                </td>
-                                                <td>$ 520</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <img
-                                                        src="https://www.bootdey.com/image/280x280/FF00FF/000000"
-                                                        alt="product-img"
-                                                        title="product-img"
-                                                        className="avatar-lg rounded"
-                                                    />
-                                                </th>
-                                                <td>
-                                                    <h5 className="font-size-16 text-truncate">
-                                                        <a href="#" className="text-dark">
-                                                            Smartphone Dual Camera
-                                                        </a>
-                                                    </h5>
-                                                    <p className="text-muted mb-0">
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star text-warning" />
-                                                        <i className="bx bxs-star text-warning" />
-                                                    </p>
-                                                    <p className="text-muted mb-0 mt-1">$ 260 x 1</p>
-                                                </td>
-                                                <td>$ 260</td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan={2}>
-                                                    <h5 className="font-size-14 m-0">Sub Total :</h5>
-                                                </td>
-                                                <td>$ 780</td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan={2}>
-                                                    <h5 className="font-size-14 m-0">Discount :</h5>
-                                                </td>
-                                                <td>- $ 78</td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan={2}>
-                                                    <h5 className="font-size-14 m-0">Shipping Charge :</h5>
-                                                </td>
-                                                <td>$ 25</td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan={2}>
-                                                    <h5 className="font-size-14 m-0">Estimated Tax :</h5>
-                                                </td>
-                                                <td>$ 18.20</td>
-                                            </tr>
-                                            <tr className="bg-light">
-                                                <td colSpan={2}>
-                                                    <h5 className="font-size-14 m-0">Total:</h5>
-                                                </td>
-                                                <td>$ 745.2</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </Table>
+                                <ListGroup className="mb-3">
+                                    {Object.values(ticketData.tickets).map(ticket => (
+                                        <ListGroupItem className="d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 className="my-0 font-weight-500 text-dark">
+                                                    {ticket.title} x {ticket.amount}
+                                                </h6>
+                                                <small className="text-muted">Includes: {ticket.options}</small>
+                                            </div>
+                                            <span className="text-muted">${ticket.price.toFixed(2)}</span>
+                                        </ListGroupItem>
+                                    ))}
+                                    <ListGroupItem className="d-flex justify-content-between">
+                                        <span>Sub Total:</span>
+                                        <span>${ticketData.cost.price.toFixed(2)}</span>
+                                    </ListGroupItem>
+                                    <ListGroupItem className="d-flex justify-content-between text-success">
+                                        <span>Discount:</span>
+                                        <span>- ${ticketData.cost.discount.toFixed(2)}</span>
+                                    </ListGroupItem>
+                                    <ListGroupItem className="d-flex justify-content-between">
+                                        <span>Total:</span>
+                                        <strong>${ticketData.cost.total.toFixed(2)}</strong>
+                                    </ListGroupItem>
+                                </ListGroup>
                             </CardBody>
                         </Card>
                     </Col>

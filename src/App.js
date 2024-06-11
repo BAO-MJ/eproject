@@ -13,6 +13,9 @@ import './App.scss';
 import './App.css';
 import './bootstrap-side-modals.css';
 import { ScrollToTop } from './Components/ScrollToTop.tsx';
+import ProcessCheckout from './Components/Checkout/ProcessCheckout.tsx';
+import SignIn from './Components/Signing/SignIn.tsx';
+import SignUp from './Components/Signing/SignUp.tsx';
 // palette:
 // https://colorhunt.co/palette/3db2ffffeddaffb830ff2442
 // https://colorhunt.co/palette/008dda41c9e2ace2e1f7eedd
@@ -32,8 +35,11 @@ const App = () => {
                     <Route path="/" element={<Main />} />
                     <Route path="/pricing" element={<Pricing/>}/>
                     <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path='/checkout' element={<Buytickets/>}/>
+                    <Route path='/forms/sign/in' element={<SignIn/>}/>
+                    <Route path='/forms/sign/up' element={<SignUp/>}/>
+                    <Route path="/forms/contact" element={<Contact />} />
+                    <Route path='/forms/checkout' element={<Buytickets/>}/>
+                    <Route path='/forms/checkout/process' element={<ProcessCheckout/>}/>
                 </Routes>
                 <Ticker />
                 <Footer />

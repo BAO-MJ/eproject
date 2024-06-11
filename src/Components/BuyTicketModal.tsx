@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useRef, useState } from 'react';
 import { Button, Col, Container, Form, FormCheck, FormText, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Row, Stack } from 'react-bootstrap';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaChild, FaMinus, FaPerson, FaPlus } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
+import CheckoutData from './Checkout/Checkout.tsx';
 
 function Spinner({ value, onChange }: Readonly<{ value: number, onChange: (value: number) => void }>) {
     return (
@@ -79,7 +80,7 @@ function ResultCost({title, value}: Readonly<{title: string, value: number}>)
     return (
         <div>
             <span>{title}</span>
-            <span style={{float: 'right', textAlign: 'right'}}>{'$' + value.toFixed(2)}</span>
+            <span style={{float: 'right', textAlign: 'right'}}>{'$ ' + value.toFixed(2)}</span>
         </div>
     )
 }
@@ -88,8 +89,13 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
     const [date, setDate] = useState(new Date());
     const [adult, setAdult] = useState(0);
     const [children, setChildren] = useState(0);
+    const adultPrice = useRef(0);
+    const childrenPrice = useRef(0);
     const [adultOptions, setAdultOptions] = useState([false, false, false]);
     const [childrenOptions, setChildrenOptions] = useState([false, false, false]);
+
+    const isDesktop = useMediaQuery({minWidth: 992});
+    const navigateTo = useNavigate();
 
     const price = useMemo<number>(() => {
         // @ts-ignore
@@ -97,7 +103,7 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
         // @ts-ignore
         let childUnitPrice = childrenOptions[0] * 1.35 + childrenOptions[1] * 5 + childrenOptions[2] * 6;
         
-        return adult * adultUnitPrice + children * childUnitPrice;
+        return (adultPrice.current = adult * adultUnitPrice) + (childrenPrice.current = children * childUnitPrice);
     }, [adult, children, adultOptions, childrenOptions]);
 
     const discount = useMemo<number>(() => {
@@ -127,10 +133,34 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
         return discount;
     }, [adult, children, adultOptions, childrenOptions]);
 
-    const total = useMemo(() => { return price - discount }, [price, discount]);
+    const total = useMemo(() => { return price - discount; }, [price, discount]);
 
-    const isDesktop = useMediaQuery({minWidth: 992});
-    const navigateTo = useNavigate();
+    const onButtonClick = () => {
+        const optToString = (options: boolean[]) => {
+            let opts = [];
+            if (options[0]) opts.push("Rides");
+            if (options[1]) opts.push("Go Karts");
+            if (options[2]) opts.push("Fishing");
+            
+            return opts.join(', ');
+        }
+        
+
+        let checkout: CheckoutData = { id: `#TK${Math.floor(Math.random() * 999 + 1)}`, tickets: {}, cost: { price, total, discount } };
+
+        if (adult > 0 && adultOptions.some(v => v === true)) {
+            checkout.tickets["adult"] = { title: "Adult Ticket", amount: adult, options: optToString(adultOptions), price: adultPrice.current };
+        }
+
+        if (children > 0 && childrenOptions.some(v => v === true)) {
+            checkout.tickets["children"] = { title: "Children Ticket", amount: children, options: optToString(childrenOptions), price: childrenPrice.current };
+        }
+
+        localStorage.setItem("checkout", JSON.stringify(checkout));
+
+        navigateTo('/forms/checkout');
+        setShow(false);
+    };
 
     return (
         <Modal show={show} onHide={() => setShow(false)} className='modal-right'>
@@ -162,7 +192,7 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
                     <ResultCost title='Discount' value={discount}/>
                     <hr/>
                     <ResultCost title='Total' value={total}/>
-                    <Button disabled={total === 0} onClick={() => {navigateTo('/checkout'); setShow(false); }} className='flex-grow-1'>
+                    <Button disabled={total === 0} onClick={onButtonClick} className='flex-grow-1'>
                         Book
                     </Button>
                 </Stack>
