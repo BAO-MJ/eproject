@@ -23,8 +23,8 @@ const Pricing = () => {
                         <Row>
                             <Col md={'4'}>
                                 <IconContext.Provider value={iconStyles[0]}>
-                                    <div className="shadow-2 p-4 surface-0 border-blue-500 border-2 h-100" style={{ borderRadius: '6px' }}>
-                                        <span className="text-2xl font-bold text-900">Rides</span>
+                                    <div className="shadow-2 p-4 surface-0 border-blue-500 border-2 h-100" style={{ borderRadius: '6px',color:'black' }}>
+                                        <span className="text-2xl font-bold text-900" >Rides</span>
                                         <hr className="my-3 border-top-1 border-none surface-border" />
                                         <div>
                                             <ListGroup variant="flush">
@@ -39,7 +39,7 @@ const Pricing = () => {
                             </Col>
                             <Col md={'4'}>
                                 <IconContext.Provider value={iconStyles[1]}>
-                                    <div className="shadow-2 p-4 surface-0 border-blue-500-1 border-2 h-100" style={{ borderRadius: '6px' }}>
+                                    <div className="shadow-2 p-4 surface-0 border-blue-500-1 border-2 h-100" style={{ borderRadius: '6px',color:'black' }}>
                                         <span className="text-2xl font-bold text-900">Go Karts</span>
                                         <hr className="my-3 border-top-2 border-none surface-border-1" />
                                         <div>
@@ -55,7 +55,7 @@ const Pricing = () => {
                             </Col>
                             <Col md={'4'}>
                                 <IconContext.Provider value={iconStyles[2]}>
-                                    <div className="shadow-2 p-4 surface-0 border-blue-500-2 border-2 h-100" style={{ borderRadius: '6px' }}>
+                                    <div className="shadow-2 p-4 surface-0 border-blue-500-2 border-2 h-100" style={{ borderRadius: '6px',color:'black' }}>
                                         <span className="text-2xl font-bold text-900">Fishing</span>
                                         <hr className="my-3 border-top-3 border-none surface-border-2" />
                                         <div>

@@ -29,7 +29,7 @@ const Contact = () => {
     };
 
     return (
-        <GenericForm title={"Contact Us"} id="contact ">
+        <GenericForm title={"Contact Us"} id="contact">
             <Col md={'6'}>
                 <Stack className="m-2 p-4" id="contact-form" gap={3}>
                     <h3 style={{fontWeight: 'bold',color:'#444'}}>Please leave a message for support</h3>
@@ -70,7 +70,7 @@ const Contact = () => {
                                 <MdOutlineLocationOn/>
                             </Col>
                             <Col>
-                                <p>01 Ly Tu Trong Street, Ninh Kieu District, Can Tho City, Vietnam</p>
+                                <p style={{color:'black'}}>01 Ly Tu Trong Street, Ninh Kieu District, Can Tho City, Vietnam</p>
                             </Col>
                         </Row>
                         <Row>
@@ -78,7 +78,7 @@ const Contact = () => {
                                 <FiPhone/>
                             </Col>
                             <Col>
-                                <p>+84 292 383 5581</p>
+                                <p style={{color:'black'}}>+84 292 383 5581</p>
                             </Col>
                         </Row>
                         <Row>
@@ -86,7 +86,7 @@ const Contact = () => {
                                 <MdOutlineEmail/>
                             </Col>
                             <Col>
-                                <p>cusc@ctu.edu.vn</p>
+                                <p style={{color:'black'}}>cusc@ctu.edu.vn</p>
                             </Col>
                         </Row>
                     </Container>

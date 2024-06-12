@@ -13,14 +13,14 @@ const Events = () => {
                     <Row>
                       
                         <Col >
-                            <InfoImage image="christmas.jpg" location="Christmas in July" name="Jul 25th 2024 12:00 PM" openHours="c"/>
+                            <InfoImage image="christmas.jpg" location="Keansburg Amusement Park" name="Christmas in July" style={{color:'black'}} openHours="Jul 25th 2024 12:00 PM"/>
                       
                         </Col>
                         <Col>
-                            <InfoImage image="images-3.jpg" location="The Snow Princess Meet" name="Aug 6th 2024 12:00 PM" openHours="C"/>
+                            <InfoImage image="images-3.jpg" location="Keansburg Amusement Park" name="The Snow Princess Meet"style={{color:'black'}} openHours="Aug 6th 2024 12:00 PM"/>
                         </Col>
                         <Col>
-                            <InfoImage image="roar.jpg" location="Dino Day" name="Jun 25th 2024 01:00 PM" openHours="C"/>
+                            <InfoImage image="roar.jpg" location="Keansburg Amusement Park" name="Dino Day"style={{color:'black'}} openHours="Jun 25th 2024 01:00 PM"/>
                         </Col>
                     </Row>
                 </Container>
@@ -29,13 +29,13 @@ const Events = () => {
                 <Container className="container-xl-forced">
                     <Row>
                         <Col>
-                            <InfoImage image="images-2.jpg" location="Fireworks 3rd of July" name="Jul 3rd 2024 08:00 PM" openHours="C"/>
+                            <InfoImage image="images-2.jpg" location="Keansburg Amusement Park " name="Fireworks 3rd of July"style={{color:'black'}} openHours="Jul 3rd 2024 08:00 PM"/>
                         </Col>
                         <Col>
-                            <InfoImage image="images-1.jpg" location="National Ice Cream Day" name="Jul 17th 2024 01:00 PM" openHours="C"/>
+                            <InfoImage image="images-1.jpg" location="Keansburg Amusement Park " name="National Ice Cream Day"style={{color:'black'}} openHours="Jul 17th 2024 01:00 PM"/>
                         </Col>
                         <Col>
-                            <InfoImage image="images-4.jpg" location="National French Fry Day" name="Jul 12th 2024 12:00 PM" openHours="C"/>
+                            <InfoImage image="images-4.jpg" location="Keansburg Amusement Park " name="National French Fry Day"style={{color:'black'}} openHours="Jul 12th 2024 12:00 PM"/>
                         </Col>
                     </Row>
                 </Container>

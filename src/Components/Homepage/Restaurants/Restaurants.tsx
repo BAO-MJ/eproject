@@ -9,13 +9,13 @@ export default function Restaurants()
         <Container className="container-xl-forced">
             <Row className="p-4">
                 <Col md='5' className="pb-4 pb-md-0">
-                    <InfoImage style={{minHeight: '50vh'}} id="main-info-image" image="images-6.jpg" location="Holly’s Lemonade Stand" name="9:00-19:00" openHours="C"/>
+                    <InfoImage style={{minHeight: '50vh',color:'black'}} id="main-info-image" image="images-6.jpg" location="Keansburg Amusement Park " name="Holly’s Lemonade Stand" openHours="9:00-19:00"/>
                 </Col>
                 <Col md='7'>
                     <Stack direction='vertical' className="justify-content-between" gap={3}>
-                        <InfoImage direction='horizontal' image="images-7.jpg" location="Toucan Grille" name="9:00-19:00" openHours="C"/>
-                        <InfoImage direction='horizontal' image="images-8.jpg" location="Pavilion Bar & Grille" name="9:00-19:00" openHours="C"/>
-                        <InfoImage direction='horizontal' image="images-9.jpg" location="Flavor Burst" name="9:00-19:00" openHours="C"/>
+                        <InfoImage direction='horizontal' image="images-7.jpg" location="Keansburg Amusement Park " name="Toucan Grille"style={{color:'black'}} openHours="9:00-19:00"/>
+                        <InfoImage direction='horizontal' image="images-8.jpg" location="Keansburg Amusement Park " name="Pavilion Bar & Grille"style={{color:'black'}} openHours="9:00-19:00"/>
+                        <InfoImage direction='horizontal' image="images-9.jpg" location="Keansburg Amusement Park " name="Flavor Burst"style={{color:'black'}} openHours="9:00-19:00"/>
                     </Stack>
                 </Col>
             </Row>

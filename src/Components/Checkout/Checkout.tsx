@@ -82,7 +82,7 @@ const Checkout = ({ setModalShow }) => {
       <Container>
         <Row>
           <p className="h1 text-center">
-            <b>Checkout form</b>
+            <b style={{color:'#1e85be'}}>Checkout form</b>
           </p>
         </Row>
         <Row>
@@ -101,7 +101,7 @@ const Checkout = ({ setModalShow }) => {
                         <BiSolidReceipt />
                       </div>
                     </div>
-                    <div className="feed-item-list">
+                    <div className="feed-item-list" style={{color:''}}>
                       <div>
                         <h5 className="font-size-16 mb-1">
                           Representative Info
@@ -117,7 +117,7 @@ const Checkout = ({ setModalShow }) => {
                                   controlId="billing-name"
                                   className="mb-3"
                                 >
-                                  <FormLabel>Name *</FormLabel>
+                                  <FormLabel style={{color:'black'}}>Name *</FormLabel>
                                   <FormControl
                                     type="text"
                                     placeholder="Enter name"
@@ -133,7 +133,7 @@ const Checkout = ({ setModalShow }) => {
                                   controlId="billing-email-address"
                                   className="mb-3"
                                 >
-                                  <FormLabel>Email Address*</FormLabel>
+                                  <FormLabel style={{color:'black'}}>Email Address*</FormLabel>
                                   <FormControl
                                     type="email"
                                     placeholder="Enter email"
@@ -149,7 +149,7 @@ const Checkout = ({ setModalShow }) => {
                                   controlId="billing-phone"
                                   className="mb-3"
                                 >
-                                  <FormLabel>Phone *</FormLabel>
+                                  <FormLabel >Phone *</FormLabel>
                                   <FormControl
                                     type="text"
                                     placeholder="Enter Phone no."
@@ -375,29 +375,29 @@ const Checkout = ({ setModalShow }) => {
                   {Object.values(ticketData.tickets).map((ticket) => (
                     <ListGroupItem className="d-flex justify-content-between lh-condensed">
                       <div>
-                        <h6 className="my-0 font-weight-500 text-dark">
+                        <h6 className="my-0 font-weight-500 text-dark" >
                           {ticket.title} x {ticket.amount}
                         </h6>
                         <small className="text-muted">
                           Includes: {ticket.options}
                         </small>
                       </div>
-                      <span className="text-muted">
+                      <span className="text-muted" >
                         ${ticket.price.toFixed(2)}
                       </span>
                     </ListGroupItem>
                   ))}
                   <ListGroupItem className="d-flex justify-content-between">
-                    <span>Sub Total:</span>
-                    <span>${ticketData.cost.price.toFixed(2)}</span>
+                    <span ><h6>Sub Total:</h6></span>
+                    <span >${ticketData.cost.price.toFixed(2)}</span>
                   </ListGroupItem>
                   <ListGroupItem className="d-flex justify-content-between text-success">
-                    <span>Discount:</span>
-                    <span>- ${ticketData.cost.discount.toFixed(2)}</span>
+                    <span ><h6>Discount:</h6></span>
+                    <span >- ${ticketData.cost.discount.toFixed(2)}</span>
                   </ListGroupItem>
                   <ListGroupItem className="d-flex justify-content-between">
-                    <span>Total:</span>
-                    <strong>${ticketData.cost.total.toFixed(2)}</strong>
+                    <span><h6>Total:</h6></span>
+                    <strong >${ticketData.cost.total.toFixed(2)}</strong>
                   </ListGroupItem>
                 </ListGroup>
               </CardBody>
