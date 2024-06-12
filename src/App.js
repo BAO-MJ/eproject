@@ -7,7 +7,7 @@ import Ticker from './Components/Ticker.tsx';
 import About from './Components/AboutUs/About.js';
 import Contact from './Components/ContactUs/Contact.tsx';
 import BuyTicketModal from './Components/BuyTicketModal.tsx';
-import Buytickets from './Components/Checkout/Checkout.tsx';
+import { Checkout } from './Components/Checkout/Checkout.tsx';
 import Pricing from './Components/Pricing/Pricing.tsx';
 import './App.scss';
 import './App.css';
@@ -38,7 +38,7 @@ const App = () => {
                     <Route path='/forms/sign/in' element={<SignIn/>}/>
                     <Route path='/forms/sign/up' element={<SignUp/>}/>
                     <Route path="/forms/contact" element={<Contact />} />
-                    <Route path='/forms/checkout' element={<Buytickets/>}/>
+                    <Route path='/forms/checkout' element={<Checkout setModalShow={setModalShow}/>}/>
                     <Route path='/forms/checkout/process' element={<ProcessCheckout/>}/>
                 </Routes>
                 <Ticker />

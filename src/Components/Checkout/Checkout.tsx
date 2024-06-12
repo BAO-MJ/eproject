@@ -1,14 +1,16 @@
-import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
-import { Button, Card, CardBody, Col, Container, Form, FormCheck, FormControl, FormGroup, FormLabel, ListGroup, ListGroupItem, Row, Table } from "react-bootstrap";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { Button, Card, CardBody, Col, Container, Form, FormControl, FormGroup, FormLabel, ListGroup, ListGroupItem, Row, Table } from "react-bootstrap";
 import './Checkout.css';
 import { FaShoppingCart } from "react-icons/fa";
 import { FaArrowLeft, FaCreditCard, FaMoneyBill, FaPaypal, FaQrcode, FaTicket, FaWallet } from "react-icons/fa6";
 import { BiSolidReceipt } from "react-icons/bi";
 import { IoTicket } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage, useSessionStorage } from "usehooks-ts";
 
-interface CheckoutData {
+type CheckoutData = {
     id: string,
+    date: string,
     tickets: { [name: string]: any },
     cost: {
         price: number,
@@ -17,7 +19,7 @@ interface CheckoutData {
     }
 }
 
-const Buytickets = () => {
+const Checkout = ({setModalShow}) => {
     const [ticketType, setTicketType] = useState('digital');
     const navigateTo = useNavigate();
     
@@ -25,11 +27,7 @@ const Buytickets = () => {
         setTicketType(event.currentTarget.value);
     };
 
-    const [ticketData, setOrderData] = useState<CheckoutData>({ id: '', tickets: {}, cost: {price: 0, discount: 0, total: 0} });
-
-    useEffect(() => {
-        setOrderData(JSON.parse(localStorage.getItem('checkout') ?? '{}'));
-    }, []);
+    const [ticketData] = useSessionStorage<CheckoutData>('checkout', { date: new Date().toLocaleDateString("vi-VN"), id: '', tickets: {}, cost: {price: 0, discount: 0, total: 0} }, {deserializer: (value) => JSON.parse(value), serializer: (value) => JSON.stringify(value)});
 
     const [validated, setValidated] = useState(false);
 
@@ -40,7 +38,7 @@ const Buytickets = () => {
             event.stopPropagation();
         }
         else {
-            localStorage.setItem('ticketType', ticketType);
+            sessionStorage.setItem('ticketType', ticketType);
             navigateTo("/forms/checkout/process");
         }
         setValidated(true);
@@ -259,7 +257,7 @@ const Buytickets = () => {
                         </Card>
                         <Row className="my-4">
                             <Col>
-                                <Button variant="link" className="text-muted" href='#'>
+                                <Button variant="link" className="text-muted" href="#" onClick={ () => { setModalShow(true); } }>
                                     <FaArrowLeft/><span className="align-middle">&nbsp;Edit Ticket</span>
                                 </Button>
                             </Col>
@@ -276,9 +274,10 @@ const Buytickets = () => {
                         <Card className="checkout-summary">
                             <CardBody>
                                 <div className="p-3 bg-light mb-3">
-                                    <h5 className="font-size-16 mb-0">
+                                    <h5 className="font-size-16 mb-2">
                                         Ticket Summary <span className="float-end ms-2">{ticketData.id}</span>
                                     </h5>
+                                    <b>Ticket Date: {ticketData.date}</b>
                                 </div>
                                 <ListGroup className="mb-3">
                                     {Object.values(ticketData.tickets).map(ticket => (
@@ -314,4 +313,4 @@ const Buytickets = () => {
     );
 };
 
-export default Buytickets;
+export { Checkout, CheckoutData };

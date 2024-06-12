@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import { Oval } from "react-loader-spinner";
 import { Checkmark } from 'react-checkmark';
 import GenericForm from "../GenericForm";
 import QRCode from "react-qr-code";
+import { useTimeout } from "usehooks-ts";
 
 export default function ProcessCheckout()
 {
@@ -12,15 +13,14 @@ export default function ProcessCheckout()
     const [ticketType, setTicketType] = useState('');
 
     useEffect(() => {
-        setID(JSON.parse(localStorage.getItem('checkout') ?? '{}')["id"]);
+        setID(JSON.parse(sessionStorage.getItem('checkout') ?? '{}')["id"]);
         setTicketType(localStorage.getItem('ticketType') ?? 'standard');
 
-        const timeoutId = setTimeout(() => {
-            setSuccess(true);
-        }, 10 * 1000);
-    
-        return () => clearTimeout(timeoutId);
+        sessionStorage.removeItem('checkout');
+        localStorage.removeItem('ticketType');
       }, []);
+
+      useTimeout(() => setSuccess(true), 10 * 1000);
 
     return (
         <GenericForm title={!success ? "Processing tickets. Please wait warmly..." : "Tickets processed successfully!"} containerClass="container-md-forced">

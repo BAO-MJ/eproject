@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Col, Container, Form, FormCheck, FormText, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Row, Stack } from 'react-bootstrap';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaChild, FaMinus, FaPerson, FaPlus } from "react-icons/fa6";
@@ -7,7 +7,8 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
-import CheckoutData from './Checkout/Checkout.tsx';
+import { CheckoutData } from './Checkout/Checkout.tsx';
+import { useSessionStorage } from 'usehooks-ts';
 
 function Spinner({ value, onChange }: Readonly<{ value: number, onChange: (value: number) => void }>) {
     return (
@@ -46,7 +47,7 @@ function LabelControl({ title, icon, children }: Readonly<{ title: string, icon:
         </Container>);
 }
 
-function TicketControl({ title, icon, children, onOptionChange }: Readonly<{ title: string, icon: ReactNode, children: ReactNode, onOptionChange: React.Dispatch<React.SetStateAction<boolean[]>> }>)
+function TicketControl({ title, icon, children, options, onOptionChange }: Readonly<{ title: string, icon: ReactNode, children: ReactNode, onOptionChange: React.Dispatch<React.SetStateAction<boolean[]>> }>)
 {
     return (
         <Container fluid>
@@ -68,9 +69,9 @@ function TicketControl({ title, icon, children, onOptionChange }: Readonly<{ tit
                 <p>Options</p>
             </Row>
             <Row style={{paddingLeft: 'calc(var(--bs-gutter-x)* .5)'}}>
-                <FormCheck onChange={(event) => onOptionChange(old => old.with(0, event.target.checked)) } label={'Rides'}/>
-                <FormCheck onChange={(event) => onOptionChange(old => old.with(1, event.target.checked)) } label={'Go Karts'}/>
-                <FormCheck onChange={(event) => onOptionChange(old => old.with(2, event.target.checked)) } label={'Fishing'}/>
+                <FormCheck checked={options[0]} onChange={(event) => onOptionChange(old => old.with(0, event.target.checked)) } label={'Rides'}/>
+                <FormCheck checked={options[1]} onChange={(event) => onOptionChange(old => old.with(1, event.target.checked)) } label={'Go Karts'}/>
+                <FormCheck checked={options[2]} onChange={(event) => onOptionChange(old => old.with(2, event.target.checked)) } label={'Fishing'}/>
             </Row>
         </Container>);
 }
@@ -93,9 +94,36 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
     const childrenPrice = useRef(0);
     const [adultOptions, setAdultOptions] = useState([false, false, false]);
     const [childrenOptions, setChildrenOptions] = useState([false, false, false]);
+    const [checkoutData, setCheckoutData] = useSessionStorage<CheckoutData>('checkout', undefined, {deserializer: (value) => JSON.parse(value), serializer: (value) => JSON.stringify(value)});
 
     const isDesktop = useMediaQuery({minWidth: 992});
     const navigateTo = useNavigate();
+    
+    useEffect(() => {
+        const stringToOpt = (str: string) => {
+            let opts = [false, false, false];
+
+            if (str.includes("Rides")) opts[0] = true;
+            if (str.includes("Go Karts")) opts[1] = true;
+            if (str.includes("Fishing")) opts[2] = true;
+            
+            return opts;
+        }
+
+        const [day, month, year] = checkoutData.date.split('/');
+        setDate(new Date(parseInt(year), parseInt(month) - 1, parseInt(day)));
+
+        if (checkoutData !== undefined) {
+            if ("adult" in checkoutData.tickets) {
+                setAdult(checkoutData.tickets["adult"].amount);
+                setAdultOptions(stringToOpt(checkoutData.tickets["adult"].options));
+            }
+            if ("children" in checkoutData.tickets) {
+                setChildren(checkoutData.tickets["children"].amount);
+                setChildrenOptions(stringToOpt(checkoutData.tickets["children"].options));
+            }
+        }
+    }, [checkoutData]);
 
     const price = useMemo<number>(() => {
         // @ts-ignore
@@ -145,8 +173,7 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
             return opts.join(', ');
         }
         
-
-        let checkout: CheckoutData = { id: `#TK${Math.floor(Math.random() * 999 + 1)}`, tickets: {}, cost: { price, total, discount } };
+        let checkout: CheckoutData = { date: date.toLocaleDateString('vi-VN') ,id: `#TK${Math.floor(Math.random() * 999 + 1)}`, tickets: {}, cost: { price, total, discount } };
 
         if (adult > 0 && adultOptions.some(v => v === true)) {
             checkout.tickets["adult"] = { title: "Adult Ticket", amount: adult, options: optToString(adultOptions), price: adultPrice.current };
@@ -156,7 +183,7 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
             checkout.tickets["children"] = { title: "Children Ticket", amount: children, options: optToString(childrenOptions), price: childrenPrice.current };
         }
 
-        localStorage.setItem("checkout", JSON.stringify(checkout));
+        setCheckoutData(checkout);
 
         navigateTo('/forms/checkout');
         setShow(false);
@@ -171,14 +198,14 @@ export default function BuyTicketModal({show, setShow}: Readonly<{show: boolean,
                 <Form>
                     <Stack>
                         <LabelControl title='Select a date' icon={<FaCalendarAlt className='modal-icon'/>}>
-                            <Flatpickr className='border-0 px-0' value={date} onChange={([date]) => { setDate(date); }} options={{ showMonths: 2, minDate: 'today' }} />
+                            <Flatpickr className='border-0 px-0' value={date} onChange={([date]) => { setDate(date); }} options={{ showMonths: 2, minDate: 'today', dateFormat: 'd/m/Y' }} />
                         </LabelControl>
                         <Stack direction={isDesktop ? 'horizontal' : 'vertical'} className='px-0 py-3' gap={1}>
-                            <TicketControl title='Adults' icon={<FaPerson className='modal-icon'/>} onOptionChange={setAdultOptions}>
+                            <TicketControl title='Adults' icon={<FaPerson className='modal-icon'/>} options={adultOptions} onOptionChange={setAdultOptions}>
                                 <Spinner value={adult} onChange={setAdult} />
                             </TicketControl>
                             <div className='vr' />
-                            <TicketControl title='Children' icon={<FaChild style={{fontSize: '1.3em', bottom: '0'}} className='modal-icon'/>} onOptionChange={setChildrenOptions}>
+                            <TicketControl title='Children' icon={<FaChild style={{fontSize: '1.3em', bottom: '0'}} className='modal-icon'/>} options={childrenOptions}  onOptionChange={setChildrenOptions}>
                                 <Spinner value={children} onChange={setChildren} />
                             </TicketControl>
                         </Stack>
