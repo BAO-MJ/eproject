@@ -247,3 +247,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
+.nav-link {
+    font-size: 1.2rem !important;
+}

@@ -1,7 +1,0 @@
-@import '~bootstrap/scss/bootstrap';
-
-@include media-breakpoint-down(md) {
-    .info-image.flex-md-column .image-container {
-        width: 30%;
-    }
-}

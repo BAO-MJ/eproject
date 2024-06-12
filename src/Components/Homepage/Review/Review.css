@@ -31,3 +31,7 @@
     font-size: 24px;
     bottom: 0;
 }
+
+.review-text {
+    font-size: calc(1.355rem + 1.26vw);
+}

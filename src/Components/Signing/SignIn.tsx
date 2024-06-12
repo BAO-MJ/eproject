@@ -1,22 +1,67 @@
 // import React from "react";
+import { FormEvent, useRef, useState } from "react";
 import GenericForm from "../GenericForm";
 import { Button, Col, Form, FormControl, FormGroup, FormLabel, FormText, Stack } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import'./Signln.css';
+import { Link, useNavigate } from "react-router-dom";
+import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import Swal from "sweetalert2";
+// import'./Signln.css';
 export default function SignIn()
 {
+    const accounts = useReadLocalStorage('accounts', { deserializer: (value) => JSON.parse(value) }) ?? {};
+    const [currentAccount, setCurrentAccount] = useLocalStorage('currentAccount', '');
+    
+    const [validated, setValidated] = useState(false);
+    const navigateTo = useNavigate();
+    const usernameInput = useRef<HTMLInputElement>(null);
+    const passwordInput = useRef<HTMLInputElement>(null);
+    
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+        }
+        else {
+            const username = usernameInput.current.value;
+            const password = passwordInput.current.value;
+
+            if (!(username in accounts) || (accounts[username].password !== password)) {
+                Swal.fire({title: 'Incorrect', icon: 'error', text: 'Incorrect username or password!'});
+            }
+            else {
+                Swal.fire({title: 'Signed In', icon: 'success', text: 'You have signed in successfully. Welcome!'})
+                    .then(() => {
+                        if (currentAccount.length === 0) {
+                            setCurrentAccount(accounts[username].name);
+                        }
+        
+                        navigateTo('/');
+                    })
+            }
+        }
+        setValidated(true);
+    };
+    
+
     return (
-        <GenericForm containerclassName="container-md-forced" title={"Sign In"}>
+        <GenericForm containerClass="container-md-forced" title={"Sign In"}>
             <Col md={'12'}>
-                <Stack className="m-2 p-4" id="contact-form" gap={4}>
-                    <Form as={Stack} gap={3}>
-                        <FormGroup controlId="userclassNameInput">
-                            <FormLabel>UserclassName</FormLabel>
-                            <FormControl type="text" className="userclassName" required />
+                <Stack className="m-2 p-4" id="contact-form" gap={3}>
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                        <FormGroup controlId="usernameInput">
+                            <FormLabel>Username</FormLabel>
+                            <FormControl ref={usernameInput} type="text" name="username" required />
+                            <Form.Control.Feedback type="invalid">
+                                Please enter your username.
+                            </Form.Control.Feedback>
                         </FormGroup>
                         <FormGroup controlId="passwordInput">
                             <FormLabel>Password</FormLabel>
-                            <FormControl type="password" className="password" required />
+                            <FormControl ref={passwordInput} type="password" name="password" required />
+                            <Form.Control.Feedback type="invalid">
+                                Please enter your password.
+                            </Form.Control.Feedback>
                         </FormGroup>
                         <div className="w-100 d-flex">
                             <FormText className="my-auto">Don't have an account? <Link to='/forms/sign/up'>Sign up now!</Link></FormText>
