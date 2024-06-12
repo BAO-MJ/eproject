@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import Header from './Components/Header.tsx';
+import Header from './Components/Header.js';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Main from './Components/Homepage/Main.tsx';
-import Footer from './Components/Footer.tsx';
-import Ticker from './Components/Ticker.tsx';
+import Main from './Components/Homepage/Main.js';
+import Footer from './Components/Footer.js';
+import Ticker from './Components/Ticker.js';
 import About from './Components/AboutUs/About.js';
-import Contact from './Components/ContactUs/Contact.tsx';
-import BuyTicketModal from './Components/BuyTicketModal.tsx';
-import { Checkout } from './Components/Checkout/Checkout.tsx';
-import Pricing from './Components/Pricing/Pricing.tsx';
+import Contact from './Components/ContactUs/Contact.js';
+import BuyTicketModal from './Components/BuyTicketModal.js';
+import Checkout from './Components/Checkout/Checkout.js';
+import Pricing from './Components/Pricing/Pricing.js';
 import './App.css';
 import './bootstrap-side-modals.css';
-import { ScrollToTop } from './Components/ScrollToTop.tsx';
-import ProcessCheckout from './Components/Checkout/ProcessCheckout.tsx';
-import SignIn from './Components/Signing/SignIn.tsx';
-import SignUp from './Components/Signing/SignUp.tsx';
+import ScrollToTop from './Components/ScrollToTop.js';
+import ProcessCheckout from './Components/Checkout/ProcessCheckout.js';
+import SignIn from './Components/Signing/SignIn.js';
+import SignUp from './Components/Signing/SignUp.js';
 
 // palette:
 // https://colorhunt.co/palette/3db2ffffeddaffb830ff2442
@@ -40,7 +40,6 @@ const App = () => {
                     <Route path="/forms/contact" element={<Contact />} />
                     <Route path='/forms/checkout' element={<Checkout setModalShow={setModalShow}/>}/>
                     <Route path='/forms/checkout/process' element={<ProcessCheckout/>}/>
-                 
                 </Routes>
                 <Ticker />
                 <Footer />

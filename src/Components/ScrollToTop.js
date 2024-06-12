@@ -7,7 +7,7 @@ import { useEffect } from 'react';
  */
 
 // https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition
-export function ScrollToTop() {
+export default function ScrollToTop() {
     const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);

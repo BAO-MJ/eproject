@@ -1,10 +1,10 @@
 import React from "react";
 import './About.css';
-import History from "./History.tsx";
-import ParkMap from "./ParkMap.tsx";
+import History from "./History.js";
+import ParkMap from "./ParkMap.js";
 import { Row } from "react-bootstrap";
-import Gallery from "./Gallery.tsx";
-import PageBanner from "../PageBanner.tsx";
+import Gallery from "./Gallery.js";
+import PageBanner from "../PageBanner.js";
 
 const About = () => {
     return (

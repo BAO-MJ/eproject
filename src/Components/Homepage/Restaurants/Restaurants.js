@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row, Stack } from "react-bootstrap";
-import InfoImage from "./InfoImage.tsx";
+import InfoImage from "./InfoImage.js";
 import './Restaurants.css';
 
 export default function Restaurants()

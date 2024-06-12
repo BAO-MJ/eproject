@@ -16,7 +16,7 @@ export default function SignIn()
     const usernameInput = useRef<HTMLInputElement>(null);
     const passwordInput = useRef<HTMLInputElement>(null);
     
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
         if (!form.checkValidity()) {
@@ -47,8 +47,8 @@ export default function SignIn()
     return (
         <GenericForm containerClass="container-md-forced" title={"Sign In"}>
             <Col md={'12'}>
-                <Stack className="m-2 p-4" id="contact-form" gap={3}>
-                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                    <Stack className="m-2 p-4" id="contact-form" gap={3}>
                         <FormGroup controlId="usernameInput">
                             <FormLabel>Username</FormLabel>
                             <FormControl ref={usernameInput} type="text" name="username" required />
@@ -67,8 +67,8 @@ export default function SignIn()
                             <FormText className="my-auto">Don't have an account? <Link to='/forms/sign/up'>Sign up now!</Link></FormText>
                             <Button className="ms-auto" type="submit">Login</Button>
                         </div>
-                    </Form>
-                </Stack>
+                    </Stack>
+                </Form>
             </Col>
         </GenericForm>
     )

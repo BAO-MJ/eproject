@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { Container, Image } from "react-bootstrap";
 import './PageBanner.css';
 
-export default function PageBanner({children = '', image}: {children?: ReactNode, image: string})
+export default function PageBanner({children = '', image})
 {
     return (
         <div className="page-title">

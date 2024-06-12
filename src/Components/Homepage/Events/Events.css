@@ -17,6 +17,14 @@
     color: white;
 }
 
-#events .carousel-inner {
+/* #events .carousel-inner {
     padding: 0px 3rem;
+} */
+
+#events .carousel-control-prev {
+    margin-left: -4rem;
+}
+  
+#events .carousel-control-next {
+    margin-right: -4rem;
 }

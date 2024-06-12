@@ -21,13 +21,9 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
-import { CheckoutData } from "./Checkout/Checkout.tsx";
 import { useLocalStorage } from "usehooks-ts";
 
-function Spinner({
-    value,
-    onChange,
-}: Readonly<{ value: number; onChange: (value: number) => void }>) {
+function Spinner({ value, onChange }) {
     return (
         <Container fluid className="my-1 spinner">
             <Row>
@@ -50,11 +46,7 @@ function Spinner({
     );
 }
 
-function LabelControl({
-    title,
-    icon,
-    children,
-}: Readonly<{ title: string; icon: ReactNode; children: ReactNode }>) {
+function LabelControl({ title, icon, children }) {
     return (
         <Container fluid>
             <Row>
@@ -68,18 +60,7 @@ function LabelControl({
     );
 }
 
-function TicketControl({
-    title,
-    icon,
-    children,
-    options,
-    onOptionChange,
-}: Readonly<{
-    title: string;
-    icon: ReactNode;
-    children: ReactNode;
-    onOptionChange: React.Dispatch<React.SetStateAction<boolean[]>>;
-}>) {
+function TicketControl({ title, icon, children, options, onOptionChange }) {
     return (
         <Container fluid>
             <Row>
@@ -120,10 +101,7 @@ function TicketControl({
     );
 }
 
-function ResultCost({
-    title,
-    value,
-}: Readonly<{ title: string; value: number }>) {
+function ResultCost({ title, value }) {
     return (
         <div>
             <span>{title}</span>
@@ -134,10 +112,7 @@ function ResultCost({
     );
 }
 
-export default function BuyTicketModal({
-    show,
-    setShow,
-}: Readonly<{ show: boolean; setShow: (arg0: boolean) => void }>) {
+export default function BuyTicketModal({ show, setShow }) {
     const [date, setDate] = useState(new Date());
     const [adult, setAdult] = useState(0);
     const [children, setChildren] = useState(0);
@@ -145,7 +120,7 @@ export default function BuyTicketModal({
     const childrenPrice = useRef(0);
     const [adultOptions, setAdultOptions] = useState([false, false, false]);
     const [childrenOptions, setChildrenOptions] = useState([false, false, false]);
-    const [checkoutData, setCheckoutData] = useLocalStorage<CheckoutData>(
+    const [checkoutData, setCheckoutData] = useLocalStorage(
         "checkout",
         undefined,
         {
@@ -158,7 +133,7 @@ export default function BuyTicketModal({
     const navigateTo = useNavigate();
 
     useEffect(() => {
-        const stringToOpt = (str: string) => {
+        const stringToOpt = (str) => {
             let opts = [false, false, false];
 
             if (str.includes("Rides")) opts[0] = true;
@@ -185,7 +160,7 @@ export default function BuyTicketModal({
         }
     }, [checkoutData]);
 
-    const price = useMemo<number>(() => {
+    const price = useMemo(() => {
         // @ts-ignore
         let adultUnitPrice =
             adultOptions[0] * 1.35 + adultOptions[1] * 8.5 + adultOptions[2] * 12;
@@ -201,10 +176,10 @@ export default function BuyTicketModal({
         );
     }, [adult, children, adultOptions, childrenOptions]);
 
-    const discount = useMemo<number>(() => {
+    const discount = useMemo(() => {
         const segmentDiscount = (
-            current: number,
-            segment: { amount: number; discount: number }[]
+            current,
+            segment
         ) => {
             let value = 0;
 
@@ -243,7 +218,7 @@ export default function BuyTicketModal({
     }, [price, discount]);
 
     const onButtonClick = () => {
-        const optToString = (options: boolean[]) => {
+        const optToString = (options) => {
             let opts = [];
             if (options[0]) opts.push("Rides");
             if (options[1]) opts.push("Go Karts");
@@ -252,7 +227,7 @@ export default function BuyTicketModal({
             return opts.join(", ");
         };
 
-        let checkout: CheckoutData = {
+        let checkout = {
             date: date.toLocaleDateString("vi-VN"),
             id: `#TK${Math.floor(Math.random() * 999 + 1)}`,
             tickets: {},

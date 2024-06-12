@@ -30,26 +30,15 @@ import { IoTicket } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "usehooks-ts";
 
-type CheckoutData = {
-  id: string;
-  date: string;
-  tickets: { [name: string]: any };
-  cost: {
-    price: number;
-    total: number;
-    discount: number;
-  };
-};
-
 const Checkout = ({ setModalShow }) => {
   const [ticketType, setTicketType] = useState("digital");
   const navigateTo = useNavigate();
 
-  const onTicketTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onTicketTypeChange = (event) => {
     setTicketType(event.currentTarget.value);
   };
 
-  const [ticketData] = useLocalStorage<CheckoutData>(
+  const [ticketData] = useLocalStorage(
     "checkout",
     {
       date: new Date().toLocaleDateString("vi-VN"),
@@ -65,7 +54,7 @@ const Checkout = ({ setModalShow }) => {
 
   const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.checkValidity()) {
@@ -101,7 +90,7 @@ const Checkout = ({ setModalShow }) => {
                         <BiSolidReceipt />
                       </div>
                     </div>
-                    <div className="feed-item-list" style={{color:''}}>
+                    <div className="feed-item-list">
                       <div>
                         <h5 className="font-size-16 mb-1">
                           Representative Info
@@ -409,4 +398,4 @@ const Checkout = ({ setModalShow }) => {
   );
 };
 
-export { Checkout, CheckoutData };
+export default Checkout;

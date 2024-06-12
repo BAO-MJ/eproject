@@ -2,14 +2,7 @@ import React from "react";
 import { Card, CardBody, Col, Container, Image, Row, Stack, Tab, Tabs } from "react-bootstrap";
 import './History.css';
 
-type HistoryMark = {
-    year: string,
-    title: string,
-    description: string,
-    image: string
-};
-
-const timeline: HistoryMark[] = [
+const timeline = [
     {
         year: '1904',
         title: 'Breaking Ground',

@@ -1,11 +1,11 @@
 import React from "react";
-import Attractions from './Attractions/Attractions.tsx';
-import Restaurants from './Restaurants/Restaurants.tsx';
-import Events from './Events/Events.tsx';
-import Title from './Title/Title.tsx';
+import Attractions from './Attractions/Attractions.js';
+import Restaurants from './Restaurants/Restaurants.js';
+import Events from './Events/Events.js';
+import Title from './Title/Title.js';
+import Newsletter from "./Newsletter/Newsletter.js";
+import Review from "./Review/Review.js";
 import './Main.css';
-import Newsletter from "./Newsletter/Newsletter.tsx";
-import Review from "./Review/Review.tsx";
 
 export default function Main() {
     return (
@@ -13,7 +13,7 @@ export default function Main() {
             <section id='title'>
                 <Title />
             </section>
-            <section id='attractions' style={{ backgroundColor: '' }}>
+            <section id='attractions'>
                 <h1>Attractions & Rides!</h1>
                 <Attractions />
             </section>
@@ -21,7 +21,7 @@ export default function Main() {
                 <h1>Must-see Events</h1>
                 <Events />
             </section>
-            <section id='restaurants' style={{ backgroundColor: '' }}>
+            <section id='restaurants'>
                 <h1>RESTAURANTS</h1>
                 <Restaurants />
             </section>

@@ -5,7 +5,7 @@ import { ReactComponent as ContactImage } from './contact.svg';
 import { FiPhone } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
-import GenericForm from "../GenericForm.tsx";
+import GenericForm from "../GenericForm.js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Contact = () => {
 
     const [validated, setValidated] = useState(false);
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
         if (!form.checkValidity()) {

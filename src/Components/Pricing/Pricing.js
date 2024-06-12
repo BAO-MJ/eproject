@@ -3,7 +3,7 @@ import './Pricing.css';
 import { Col, Container, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { PiCheck } from "react-icons/pi";
 import { IconContext } from "react-icons";
-import PageBanner from "../PageBanner.tsx";
+import PageBanner from "../PageBanner.js";
 
 const Pricing = () => {
     const iconStyles = useMemo(() => [{ style: { color: '#6CC1F7' } }, { style: { color: '#ffb300' } }, { style: { color: '#8AF4CF' } }], []);
@@ -70,10 +70,10 @@ const Pricing = () => {
                         </Row>
                         <div className="note"><h4>Note:</h4>
                         <ul>
-                            <li>Guests under 100 cm receive free admission to VinWonders Phu Quoc</li>
-                            <li>VinWonders Phu Quoc ticket prices include VAT</li>
+                            <li>Guests under 100 cm receive free admission to Keansburg Amusement Park</li>
+                            <li>Keansburg Amusement Park ticket prices include VAT</li>
                             <li>Elderly people: Customers who are 60 years old or older and bring photo identification documents for comparison</li>
-                            <li>Khách hàng có thể được giảm thêm tới 5% giá vé VinWonders Phú Quốc khi đăng ký là thành viên và đặt vé online</li>
+                            <li>Customers can receive an additional discount of up to 5% on Keansburg Amusement Park ticket prices when registering as a member and booking tickets online</li>
                         </ul>
                         </div>
                         <div className="rules"><h3 style={{color:'red'}}>Rules Of Keansburg Amusement Park</h3></div>                 

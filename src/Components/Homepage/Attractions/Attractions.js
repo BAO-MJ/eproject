@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import './Attractions.css';
 
-function Portfolio({ image, title, description, ...props }: Readonly<{ image: string, title: string, description: string }>) {
+function Portfolio({ image, title, description, ...props }) {
     return (
         <Col {...props}>
             <div className="image-container">

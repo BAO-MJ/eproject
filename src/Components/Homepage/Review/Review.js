@@ -2,13 +2,7 @@ import React from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
 import './Review.css';
 
-type CustomerReview = {
-    stars: number,
-    review: string,
-    reviewer: string
-}
-
-const reviews: CustomerReview[] = [
+const reviews = [
     {
         stars: 5,
         review: "Got the weekday pass. It was worth it. My son had a ball. A full day of fun for one price. Water park and amusement park.",

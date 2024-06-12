@@ -10,17 +10,5 @@
 #newsletter h1 {
     font-weight: 700;
     font-size: 4em;
-    color: red;
-}
-#newsletter h3{
-    color: #0D3483;
-}
-button.ms-auto.btn.btn-primary{
-    background-color: red;
-}
-button.ms-auto.btn.btn-primary:hover{
-   background-color:brown;
-}
-input.form-control{
-    background: #FFEDC8;
+    color: #FF2442;
 }

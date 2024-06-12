@@ -19,7 +19,7 @@ export default function SignUp()
     const rePasswordFeedback = useRef(null);
     
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.currentTarget;
         if (!form.checkValidity()) {
