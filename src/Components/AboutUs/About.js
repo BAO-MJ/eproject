@@ -11,10 +11,10 @@ const About = () => {
         <div id="loki" style={{ backgroundColor: "white" }}>
             <PageBanner image={"hulk.png"}>
                 <Row>
-                    <h1><b>About us</b></h1>
+                    <h1><b style={{color:'#FFEDC8'}}>About us</b></h1>
                 </Row>
                 <Row>
-                    <span>
+                    <span style={{color:'#FFEDC8'}}>
                         Since 1904, our family mission remains rooted in
                         delivering a magical blend of tradition, excitement, and
                         safety, making Keansburg Amusement Park the heartbeat of

@@ -7,3 +7,12 @@
     background-color: white;
     border-radius: 10px;
 }
+input.form-control{
+    background: white;
+}
+h2.text-center.fw-bold{
+    color: #0D3483;
+}
+svg{
+    color: red;
+}

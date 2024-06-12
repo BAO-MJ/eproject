@@ -29,13 +29,13 @@ const Contact = () => {
     };
 
     return (
-        <GenericForm title={"Contact Us"} id="contact">
+        <GenericForm title={"Contact Us"} id="contact ">
             <Col md={'6'}>
                 <Stack className="m-2 p-4" id="contact-form" gap={3}>
-                    <h3 style={{fontWeight: 'bold'}}>Please leave a message for support</h3>
+                    <h3 style={{fontWeight: 'bold',color:'#444'}}>Please leave a message for support</h3>
                     <Form id="contact-us-form" noValidate validated={validated} onSubmit={handleSubmit}>
                         <Stack gap={3}>
-                            <FormControl type="text" placeholder="Full name*" required />
+                            <FormControl type="text" placeholder="Full name*" style={{background:'#fff'}} required />
                             <Form.Control.Feedback className="my-0" type="invalid">
                                 Please provide your name.
                             </Form.Control.Feedback>
@@ -62,7 +62,7 @@ const Contact = () => {
             </Col>
             <Col md={'6'}>
                 <ContactImage/>
-                <h3>Head office address:</h3>
+                <h3 style={{color:'#0D3483'}}>Head office address:</h3>
                 <IconContext.Provider value={contactIconStyles}>
                     <Container>
                         <Row>

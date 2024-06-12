@@ -20,8 +20,9 @@
 
 #pricing h1.post_title-1 {
     margin-bottom: 20px;
-    color:white;
+    color:red;
     text-align: center;
+    padding: 5vh;
 }
 
 #pricing .w-full {
@@ -124,10 +125,31 @@
     box-shadow: 0 4px 10px #8AF4CF  !important;
 }
 #pricing #page-wrapper{
-    background: linear-gradient(to bottom,#68EACC 0%,#497BE8 100%);
+    background: rgba(240, 91, 36, .1);
 }
 
 #pricing .list-group-item {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+.note{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #444;
+}
+.rules{
+    font-size: 20px;
+        line-height: 28px;
+       
+        text-align: center;
+   
+    font-family: "montserrat-bold";
+    padding: 10vh;
+}
+.wpb_wrapper{
+    padding: 24px;
+    border-radius: 6px;
+  
+    font-size: 16px;
+    line-height: 24px;
 }

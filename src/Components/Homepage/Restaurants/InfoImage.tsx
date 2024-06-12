@@ -33,7 +33,7 @@ export default function InfoImage({id = '', className = '', style, image, locati
                             <StackText className="info-location" style={{color: '#DC502C', fontWeight: 'bold', fontSize: 'large'}}><FaLocationDot/>  <span>{location}</span></StackText>
                             <StackText className="info-title" style={{fontWeight: 'bold', fontSize: 'x-large'}}>{name}</StackText>
                             <StackText className="info-hours">{openHours}</StackText>
-                            <div><Button variant="outline-info" className="ms-4">Hello</Button></div>
+                            <div><Button variant="outline-info" className="ms-4" style={{backgroundColor:'#ffb300',color:'#fff'}}>Đánh giá</Button></div>
                         </Stack>;
 
     let classNames = "image-wrapper info-image flex-row";

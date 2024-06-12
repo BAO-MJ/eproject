@@ -22,15 +22,15 @@ export default function Attractions() {
         <Container className="container-xl-forced d-flex flex-grow-1 flex-column">
             <Row className="gx-20 px-5 py-4">
                 <Portfolio
-                    image="https://keansburgamusementpark.com/wp-content/uploads/2020/02/Dragons-600x420.jpeg"
+                    image="Dragons.jpg"
                     title='Rides'
                     description="Ready for an adventure-packed day? Head to Keansburg Amusement Park and experience the thrill of our gravity-defying rides! From classic favorites to pulse-pounding coasters, there's excitement around every corner." />
                 <Portfolio
-                    image="https://keansburgamusementpark.com/wp-content/uploads/2015/03/go-karts_header1-768x427.jpg"
+                    image="go-karts.jpg"
                     title='Go Karts'
                     description="Speed, Thrills, and Laughs Await! Dive into the excitement at Fast Trax Go Karts at Keansburg Amusement Park! Whether you’re a kid or just a kid at heart, we’ve got the track for you."/>
                 <Portfolio
-                    image="https://keansburgamusementpark.com/wp-content/uploads/2015/04/fishing-pier_header-768x512.jpg"
+                    image="fishing-pier.jpg"
                     title='Fishing Pier'
                     description="Enjoy the Day Fishing on Our 2000 foot Pier Overlooking the Raritan Bay." />
             </Row>

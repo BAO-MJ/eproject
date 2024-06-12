@@ -5,7 +5,7 @@ export default function ParkMap() {
     return (
         <Container>
             <Row>
-                <h2>Park Map</h2>
+                <h2 style={{color:'#0D3483',fontSize:'3.5rem',marginBottom:'30px'}}>Park Map</h2>
             </Row>
             <Row>
                 <Image src="park-map.png" rounded />

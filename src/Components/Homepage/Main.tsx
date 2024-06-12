@@ -13,7 +13,7 @@ export default function Main() {
             <section id='title'>
                 <Title />
             </section>
-            <section id='attractions' style={{ backgroundColor: 'lightblue' }}>
+            <section id='attractions' style={{ backgroundColor: '' }}>
                 <h1>Attractions & Rides!</h1>
                 <Attractions />
             </section>
@@ -21,7 +21,7 @@ export default function Main() {
                 <h1>Must-see Events</h1>
                 <Events />
             </section>
-            <section id='restaurants' style={{ backgroundColor: 'lightblue' }}>
+            <section id='restaurants' style={{ backgroundColor: '' }}>
                 <h1>RESTAURANTS</h1>
                 <Restaurants />
             </section>

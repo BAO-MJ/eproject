@@ -1,3 +1,9 @@
 #main-info-image .image-container {
     height: 100%;
 }
+#restaurants{
+ background: url(/public/images-10.jpg);
+}
+#restaurants h1{
+    color: #FFEDC8;
+}

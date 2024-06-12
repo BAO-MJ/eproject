@@ -1,5 +1,5 @@
 #newsletter {
-    background: url(/public/test.png);
+    background: url(/public/images-11.png);
     background-position: 50% 50%;
 }
 
@@ -10,4 +10,17 @@
 #newsletter h1 {
     font-weight: 700;
     font-size: 4em;
+    color: red;
+}
+#newsletter h3{
+    color: #0D3483;
+}
+button.ms-auto.btn.btn-primary{
+    background-color: red;
+}
+button.ms-auto.btn.btn-primary:hover{
+   background-color:brown;
+}
+input.form-control{
+    background: #FFEDC8;
 }

@@ -9,3 +9,10 @@
 #events .info-title:hover {
     color: #FFB830;
 }
+#events{
+    background: linear-gradient(to bottom,#68EACC 0%,#497BE8 100%);
+    
+}
+#events h1{
+    color: white;
+}
