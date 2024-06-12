@@ -9,7 +9,6 @@ import Contact from './Components/ContactUs/Contact.tsx';
 import BuyTicketModal from './Components/BuyTicketModal.tsx';
 import { Checkout } from './Components/Checkout/Checkout.tsx';
 import Pricing from './Components/Pricing/Pricing.tsx';
-import './App.scss';
 import './App.css';
 import './bootstrap-side-modals.css';
 import { ScrollToTop } from './Components/ScrollToTop.tsx';

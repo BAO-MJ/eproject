@@ -2,11 +2,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React, { useEffect, useState } from "react";
-import { Col, NavLink, NavbarBrand, NavbarCollapse, NavbarText, NavbarToggle, Row } from "react-bootstrap";
+import { Col, NavDropdown, NavLink, NavbarBrand, NavbarCollapse, NavbarText, NavbarToggle, Row } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
-import './Header.scss';
 import MediaQuery, { useMediaQuery } from "react-responsive";
+import { useLocalStorage } from "usehooks-ts";
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -51,6 +51,7 @@ export default function Header({setModalShow}) {
     const { width: vw, height: vh } = useWindowDimensions();
     const isMobile = useMediaQuery({maxWidth: 991.98});
     const location = useLocation();
+    const [account, setAccount, removeAccount] = useLocalStorage('currentAccount', '');
 
     useEffect(() => {
         if (window !== undefined) {
@@ -89,16 +90,11 @@ export default function Header({setModalShow}) {
     const [opaque, setOpaque] = useState(false);
 
     useEffect(() => {
-        if (location.pathname.startsWith('/forms')) {
-            setOpaque(true);
-        }
-        else {
-            setOpaque(false);
-        }
+        setOpaque(location.pathname.startsWith('/forms'));
     }, [location]);
 
     return (
-        <Navbar expand={'xl'} id="header" className={`${(scrolled || opaque || isMobile) ? 'opaque-header' : ''} ${(opaque || isMobile ? 'sticky-top' : 'fixed-top')}`}>
+        <Navbar collapseOnSelect expand={'xl'} id="header" className={`${(scrolled || opaque || isMobile) ? 'opaque-header' : ''} ${(opaque || isMobile ? 'sticky-top' : 'fixed-top')}`}>
             <Container fluid>
                 <NavbarBrand as={Link} to="/">
                     <img src="/logo.png" alt="logo" />
@@ -107,10 +103,16 @@ export default function Header({setModalShow}) {
                 <NavbarCollapse className="justify-content-end">
                     <Row>
                         <Col sm={'12'}>
+                            
                             <Nav className="justify-content-end">
-                                <NavLink as={Link} to="/forms/sign/in">
-                                    Sign In
-                                </NavLink>
+                                {account.length === 0 ?
+                                    <NavLink as={Link} to="/forms/sign/in">
+                                        Sign In
+                                    </NavLink> :
+                                    <NavDropdown title={"Welcome, " + account}>
+                                        <NavDropdown.Item onClick={removeAccount}>Sign out</NavDropdown.Item>
+                                    </NavDropdown>
+                                }
                                 <VisitorsCounter />
                             </Nav>
                         </Col>

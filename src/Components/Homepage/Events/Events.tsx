@@ -2,11 +2,9 @@ import React from "react";
 import { Carousel, CarouselItem, Col, Container, Row } from "react-bootstrap";
 import InfoImage from "../Restaurants/InfoImage.tsx";
 import './Events.css';
-import './Events.scss';
 
 const Events = () => {
     return (
-    
         <Carousel slide indicators controls interval={null} className="px-5 pt-3 pb-5" >
             <CarouselItem>
                 <Container className="container-xl-forced">

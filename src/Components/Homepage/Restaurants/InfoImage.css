@@ -50,3 +50,9 @@
 .image-wrapper:hover .image-container > img {
     transform: scale(1.1);
 }
+
+@media (max-width: 767.98px) {
+    .info-image.flex-md-column .image-container {
+        width: 30%;
+    }
+}

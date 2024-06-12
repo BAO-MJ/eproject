@@ -2,7 +2,6 @@ import React, { CSSProperties, ReactNode } from "react";
 import { Button, Image, Stack } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import "./InfoImage.css";
-import './InfoImage.scss';
 
 type InfoDirection = 'vertical' | 'horizontal';
 
@@ -38,7 +37,7 @@ export default function InfoImage({id = '', className = '', style, image, locati
 
     let classNames = "image-wrapper info-image flex-row";
 
-    if (direction === 'vertical') classNames += "flex-md-column";
+    if (direction === 'vertical') classNames += " flex-md-column";
 
     return (
         <div id={id} className={[classNames, className].join(' ')} style={style}>
