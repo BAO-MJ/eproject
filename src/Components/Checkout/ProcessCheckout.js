@@ -43,7 +43,7 @@ export default function ProcessCheckout() {
         ) : (
           <QRCode
             className="mx-auto my-3 justify-content-center"
-            value="https://youtu.be/dQw4w9WgXcQ?si=nbs82kG3V1faOR3Y"
+            value="aHR0cHM6Ly95b3V0dS5iZS9kUXc0dzlXZ1hjUT9zaT1uYnM4MmtHM1YxZmFPUjNZ"
             size={192}
           />
         )}

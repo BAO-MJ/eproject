@@ -43,7 +43,7 @@ function VisitorsCounter() {
         localStorage.setItem("visitCounter", visitors.toString());
     }, [visitors]);
 
-    return <NavbarText id="visit-counter" className="px-3"><b>Visitors:&nbsp;{visitors}</b></NavbarText>;
+    return <NavbarText id="visit-counter" className="px-1 px-lg-3"><b>Visitors:&nbsp;{visitors}</b></NavbarText>;
 }
 
 export default function Header({setModalShow}) {
@@ -103,39 +103,43 @@ export default function Header({setModalShow}) {
                 <NavbarCollapse className="justify-content-end">
                     <Row>
                         <Col sm={'12'}>
-                            
                             <Nav className="justify-content-end">
                                 {account.length === 0 ?
-                                    <NavLink as={Link} to="/forms/sign/in">
+                                    <NavLink as={Link} to="/forms/sign/in" href="/forms/sign/in">
                                         Sign In
                                     </NavLink> :
                                     <NavDropdown title={"Welcome, " + account}>
                                         <NavDropdown.Item onClick={removeAccount}>Sign out</NavDropdown.Item>
                                     </NavDropdown>
                                 }
-                                <VisitorsCounter />
+                                <MediaQuery minWidth={992}>
+                                    <VisitorsCounter />
+                                </MediaQuery>
                             </Nav>
                         </Col>
                         <Col sm={'12'}>
                             <Nav className="justify-content-end">
-                                <NavLink as={Link} to="/">
+                                <NavLink as={Link} to="/" href="/">
                                     HOME
                                 </NavLink>
-                                <NavLink as={Link} to="/pricing">
+                                <NavLink as={Link} to="/pricing" href="/pricing">
                                     PRICING
                                 </NavLink>
-                                <NavLink as={Link} to="/about">
+                                <NavLink as={Link} to="/about" href="/about">
                                     ABOUT US
                                 </NavLink>
-                                <NavLink as={Link} to="/forms/contact">
+                                <NavLink as={Link} to="/forms/contact" href="/forms/contact">
                                     CONTACT US
                                 </NavLink>
                                 { 
                                     !location.pathname.startsWith("/forms/checkout") &&
-                                    <NavLink id="buy-button" onClick={() => setModalShow(true)}>
+                                    <NavLink id="buy-button" href="#" onClick={() => setModalShow(true)}>
                                         BUY TICKETS
                                     </NavLink>
                                 }
+                                <MediaQuery maxWidth={991.98}>
+                                    <VisitorsCounter />
+                                </MediaQuery>
                             </Nav>
                         </Col>
                     </Row>

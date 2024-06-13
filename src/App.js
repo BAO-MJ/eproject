@@ -16,13 +16,6 @@ import ProcessCheckout from './Components/Checkout/ProcessCheckout.js';
 import SignIn from './Components/Signing/SignIn.js';
 import SignUp from './Components/Signing/SignUp.js';
 
-// palette:
-// https://colorhunt.co/palette/3db2ffffeddaffb830ff2442
-// https://colorhunt.co/palette/008dda41c9e2ace2e1f7eedd
-// https://colorhunt.co/palette/f7f7f7fcd59b1fa8cf2657c1
-// ref:
-// https://keansburgamusementpark.com/
-// https://www.motocms.com/website-templates/demo/66540.html
 const App = () => {
     const [modalShow, setModalShow] = useState(false);
     return (

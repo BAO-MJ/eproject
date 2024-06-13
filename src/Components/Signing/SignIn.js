@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 import { FormEvent, useRef, useState } from "react";
 import GenericForm from "../GenericForm";
 import { Button, Col, Form, FormControl, FormGroup, FormLabel, FormText, Stack } from "react-bootstrap";
@@ -13,8 +13,8 @@ export default function SignIn()
     
     const [validated, setValidated] = useState(false);
     const navigateTo = useNavigate();
-    const usernameInput = useRef<HTMLInputElement>(null);
-    const passwordInput = useRef<HTMLInputElement>(null);
+    const usernameInput = useRef(null);
+    const passwordInput = useRef(null);
     
     const handleSubmit = (event) => {
         event.preventDefault();

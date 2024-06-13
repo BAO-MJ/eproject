@@ -9,7 +9,6 @@ const images = [
     "images-22.jpg",
     "images-23.jpg",
     "images-24.jpg",
-    // "https://keansburgamusementpark.com/wp-content/uploads/2015/04/fishing-pier_header-768x512.jpg"
 ]
 
 export default function Gallery() {

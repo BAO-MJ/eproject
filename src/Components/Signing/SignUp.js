@@ -12,10 +12,10 @@ export default function SignUp()
 
     const [validated, setValidated] = useState(false);
     const navigateTo = useNavigate();
-    const fullNameInput = useRef<HTMLInputElement>(null);
-    const usernameInput = useRef<HTMLInputElement>(null);
-    const passwordInput = useRef<HTMLInputElement>(null);
-    const rePasswordInput = useRef<HTMLInputElement>(null);
+    const fullNameInput = useRef(null);
+    const usernameInput = useRef(null);
+    const passwordInput = useRef(null);
+    const rePasswordInput = useRef(null);
     const rePasswordFeedback = useRef(null);
     
 

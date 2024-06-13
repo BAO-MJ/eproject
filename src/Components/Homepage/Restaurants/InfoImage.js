@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode } from "react";
 import { Button, Image, Stack } from "react-bootstrap";
-import { FaLocationDot, FaStar } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 import "./InfoImage.css";
 
 function StackText({className = '', children, style})

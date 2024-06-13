@@ -19,7 +19,7 @@ import { FaChild, FaMinus, FaPerson, FaPlus } from "react-icons/fa6";
 import "./BuyTicketModal.css";
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
-import { useMediaQuery } from "react-responsive";
+import MediaQuery, { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "usehooks-ts";
 
@@ -296,7 +296,12 @@ export default function BuyTicketModal({ show, setShow }) {
                             >
                                 <Spinner value={adult} onChange={setAdult} />
                             </TicketControl>
-                            <div className="vr" />
+                            <MediaQuery minWidth={992}>
+                                <div className="vr" />
+                            </MediaQuery>
+                            <MediaQuery maxWidth={991.98}>
+                                <hr/>
+                            </MediaQuery>
                             <TicketControl
                                 title="Children"
                                 icon={

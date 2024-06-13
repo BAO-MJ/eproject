@@ -1,5 +1,5 @@
 #header {
-    height: 15vh;
+    min-height: 10vh;
     transition: 0.5s;
 }
 
@@ -48,14 +48,19 @@ nav {
 
 #buy-button {
     color: #FF2442 !important;
-    background-color: #FFEDDA;
     font-weight: bold !important;
-    border-radius: 30px;
 }
 
-#buy-button:hover {
-    background-color: #FF2442 !important;
-    color: #FFEDDA !important;
+@media (min-width: 992px) {
+    #buy-button {
+        background-color: #FFEDDA;
+        border-radius: 30px;
+    }
+
+    #buy-button:hover {
+        background-color: #FF2442 !important;
+        color: #FFEDDA !important;
+    }
 }
 
 #buy-button .dropdown-toggle {
@@ -187,9 +192,15 @@ nav {
 #visit-counter {
     height: 100%;
     color: red;
-    background-color: #FFEDDA;
-    border-radius: 30px;
 }
+
+@media (min-width: 992px) {
+    #visit-counter {
+        background-color: #FFEDDA;
+        border-radius: 30px;
+    }
+}
+
 #page-wrapper {
   margin-top: -2px;
   padding-top: 2rem;
