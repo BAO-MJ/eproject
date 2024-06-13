@@ -130,11 +130,12 @@ export default function Header({setModalShow}) {
                                 <NavLink as={Link} to="/forms/contact">
                                     CONTACT US
                                 </NavLink>
-                                <MediaQuery minWidth={992}>
+                                { 
+                                    !location.pathname.startsWith("/forms/checkout") &&
                                     <NavLink id="buy-button" onClick={() => setModalShow(true)}>
                                         BUY TICKETS
                                     </NavLink>
-                                </MediaQuery>
+                                }
                             </Nav>
                         </Col>
                     </Row>

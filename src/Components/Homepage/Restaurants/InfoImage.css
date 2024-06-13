@@ -30,15 +30,11 @@
 .image-container {
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
 }
 
 .image-container > img {
     transition: .5s ease all;
     object-fit: cover;
-    height: 100%;
 }
 
 .image-wrapper {

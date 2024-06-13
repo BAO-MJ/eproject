@@ -12,8 +12,9 @@ export default function ProcessCheckout() {
   const [ticketType, setTicketType] = useState("");
 
   useEffect(() => {
-    setID(JSON.parse(localStorage.getItem("checkout") ?? "{}")["id"]);
-    setTicketType(localStorage.getItem("ticketType") ?? "standard");
+    const data = JSON.parse(localStorage.getItem("processCheckout") ?? "{}");
+    setID(data.id);
+    setTicketType(data.ticketType);
   }, []);
 
   useTimeout(() => setSuccess(true), 10 * 1000);
@@ -22,7 +23,7 @@ export default function ProcessCheckout() {
     <GenericForm
       title={
         !success
-          ? "Processing tickets. Please wait warmly..."
+          ? "Processing tickets. Please wait..."
           : "Tickets processed successfully!"
       }
       containerClass="container-md-forced"

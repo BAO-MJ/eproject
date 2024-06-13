@@ -45,11 +45,6 @@ const events = [
     
 ]
 
-function CarouselItems() {
-
-
-}
-
 const Events = () => {
     const isMobile = useMediaQuery({ minWidth: 768, maxWidth: 991.98 });
     const isDesktop = useMediaQuery({ minWidth: 992 });
@@ -69,7 +64,7 @@ const Events = () => {
     };
 
     return [
-        <Carousel slide indicators controls interval={null} className="px-5 pt-3 pb-5" >
+        <Carousel slide indicators controls={false} touch interval={3000} className="px-5 pt-3 pb-5" >
             {(() => {
                 let items = [];
                 for (let i = 0; i < events.length / multiplier; i++) {

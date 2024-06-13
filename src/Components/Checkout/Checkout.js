@@ -38,7 +38,7 @@ const Checkout = ({ setModalShow }) => {
     setTicketType(event.currentTarget.value);
   };
 
-  const [ticketData] = useLocalStorage(
+  const [ticketData, setTicketData, removeTicketData] = useLocalStorage(
     "checkout",
     {
       date: new Date().toLocaleDateString("vi-VN"),
@@ -60,7 +60,8 @@ const Checkout = ({ setModalShow }) => {
     if (!form.checkValidity()) {
       event.stopPropagation();
     } else {
-      localStorage.setItem("ticketType", ticketType);
+      localStorage.setItem("processCheckout", JSON.stringify({id: ticketData.id, ticketType}));
+      removeTicketData();
       navigateTo("/forms/checkout/process");
     }
     setValidated(true);

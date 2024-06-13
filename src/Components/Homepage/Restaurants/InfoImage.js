@@ -10,7 +10,7 @@ function StackText({className = '', children, style})
 
 export default function InfoImage({id = '', className = '', style, image, location, name, openHours, direction = 'vertical', showReviewModal})
 {
-    const imageDiv =    <div className="image-container flex-shrink-1">
+    const imageDiv =    <div className="image-container">
                             <Image fluid className={image === '' ? "image-placeholder" : ''} src={image} alt={""}/>
                         </div>;
 
@@ -19,12 +19,12 @@ export default function InfoImage({id = '', className = '', style, image, locati
                             <StackText className="info-location" style={{color: '#DC502C', fontWeight: 'bold', fontSize: 'large'}}><FaLocationDot/>  <span>{location}</span></StackText>
                             <StackText className="info-title" style={{fontWeight: 'bold', fontSize: 'x-large'}}>{name}</StackText>
                             <StackText className="info-hours">{openHours}</StackText>
-                            <Button onClick={() => { showReviewModal(name, image) }} variant="outline-info" className="mx-3" style={{backgroundColor:'#ffb300',color:'#fff'}}>★ Review This ★</Button>
+                            <Button onClick={() => { showReviewModal(name, image) }} variant="outline-info" className="mx-3">★ Review This ★</Button>
                         </Stack>;
 
-    let classNames = "image-wrapper info-image flex-row";
+    let classNames = `image-wrapper info-image ${direction === 'vertical' ? "flex-column" : "flex-row"}`;
 
-    if (direction === 'vertical') classNames += " flex-md-column";
+    // if (direction === 'vertical') classNames += " flex-md-column";
 
     return (
         <div id={id} className={[classNames, className].join(' ')} style={style}>

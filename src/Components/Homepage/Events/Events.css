@@ -1,7 +1,3 @@
-#events .info-image .image-container {
-    aspect-ratio: 10 / 9;
-}
-
 #events .info-title {
     transition: all 0.1s linear;
 }
@@ -27,4 +23,16 @@
   
 #events .carousel-control-next {
     margin-right: -3rem;
+}
+
+#events .info-title {
+    height: 90px;
+}
+
+#events .info-image {
+    height: 500px;
+}
+
+#events .info-image .image-container {
+    height: 300px;
 }

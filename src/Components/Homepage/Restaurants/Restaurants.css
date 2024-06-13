@@ -7,3 +7,16 @@
 #restaurants h1{
     color: #FFEDC8;
 }
+
+@media (max-width: 991.98px) {
+    #restaurants .info-image .image-container {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (min-width: 992px) {
+    #restaurants .info-image.flex-row .image-container {
+        width: 250px;
+    }
+}
