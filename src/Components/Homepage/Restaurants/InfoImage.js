@@ -8,7 +8,7 @@ function StackText({className = '', children, style})
     return (<span style={style} className={["text-start px-4 py-0", className].join(' ')}>{children}</span>);
 }
 
-export default function InfoImage({id = '', className = '', style, image, location, name, openHours, direction = 'vertical'})
+export default function InfoImage({id = '', className = '', style, image, location, name, openHours, direction = 'vertical', showReviewModal})
 {
     const imageDiv =    <div className="image-container flex-shrink-1">
                             <Image fluid className={image === '' ? "image-placeholder" : ''} src={image} alt={""}/>
@@ -19,7 +19,7 @@ export default function InfoImage({id = '', className = '', style, image, locati
                             <StackText className="info-location" style={{color: '#DC502C', fontWeight: 'bold', fontSize: 'large'}}><FaLocationDot/>  <span>{location}</span></StackText>
                             <StackText className="info-title" style={{fontWeight: 'bold', fontSize: 'x-large'}}>{name}</StackText>
                             <StackText className="info-hours">{openHours}</StackText>
-                            <div><Button variant="outline-info" className="ms-4" style={{backgroundColor:'#ffb300',color:'#fff'}}>Review This ★</Button></div>
+                            <Button onClick={() => { showReviewModal(name, image) }} variant="outline-info" className="mx-3" style={{backgroundColor:'#ffb300',color:'#fff'}}>★ Review This ★</Button>
                         </Stack>;
 
     let classNames = "image-wrapper info-image flex-row";
